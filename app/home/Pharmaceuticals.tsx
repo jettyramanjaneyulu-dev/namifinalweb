@@ -36,7 +36,6 @@ export default function Pharmaceuticals() {
                   href="/infrastructure"
                   className="flex items-center gap-6 cursor-pointer group w-fit"
                 >
-                  {/* Next.js Optimized Image Container */}
                   <div className="w-16 h-16 rounded-full overflow-hidden border border-[#014d8b]/30 relative flex-shrink-0">
                     <Image 
                       src={img} 
@@ -58,30 +57,45 @@ export default function Pharmaceuticals() {
             </div>
           </div>
 
-          {/* RIGHT IMAGE (iOS Fixed Background Fix) */}
+          {/* RIGHT IMAGE - FULLY FIXED FOR iOS SCROLL */}
           <div className="order-1 lg:order-2 relative flex justify-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               className="relative w-72 h-72 md:w-[520px] md:h-[520px] z-10"
               style={{
-                // This clips the viewport-fixed background to this specific circle
+                // Required to clip the fixed background to the circle
                 clipPath: "circle(50% at 50% 50%)",
                 WebkitClipPath: "circle(50% at 50% 50%)",
+                // Fixes a flickering issue on some iOS versions
+                transform: "translateZ(0)",
               }}
             >
-              {/* The background is set to 'fixed' on a full-screen pseudo-element.
-                  Because it sits inside a 'clip-path' container, it only shows 
-                  through the circle, creating the parallax effect on iOS.
+              {/* THE FIX: 
+                On iOS, 'bg-fixed' is broken. Instead, we use 'before:fixed'.
+                The 'before' pseudo-element is fixed to the viewport.
+                Because the parent has 'clip-path', the user only sees the 
+                background through the circle as they scroll.
               */}
               <div 
-                className="absolute inset-0 bg-[url('/assets/Pharmaceuticals.jpeg')] bg-cover bg-center bg-no-repeat sm:bg-fixed" 
-                style={{ height: '100%', width: '100%' }}
+                className="absolute inset-0 
+                  before:content-[''] 
+                  before:fixed 
+                  before:inset-0 
+                  before:z-[-1] 
+                  before:bg-[url('/assets/Pharmaceuticals.jpeg')] 
+                  before:bg-cover 
+                  before:bg-center 
+                  before:bg-no-repeat
+                  before:will-change-transform
+                  bg-cover bg-center sm:bg-fixed"
+                style={{ 
+                  height: '100%', 
+                  width: '100%',
+                }}
               />
-              
-              {/* iOS specific fix overlay for mobile safari */}
-              <div className="absolute inset-0 pointer-events-none md:hidden bg-[url('/assets/Pharmaceuticals.jpeg')] bg-cover bg-center" />
             </motion.div>
 
             {/* Decorative Ambient Glow */}
