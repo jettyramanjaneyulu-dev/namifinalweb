@@ -6,12 +6,11 @@ export default function HeroSection() {
     <section className="relative flex items-center justify-center min-h-[70vh] sm:min-h-[80vh] lg:min-h-screen overflow-hidden">
 
       {/* Background Image */}
-      <Image
+      <img
         src="/assets/Pharmaceuticals1.png"
         alt="Nami Life Sciences Laboratory"
-        fill
-        priority
-        className="object-cover object-center"
+        
+        className="w-full h-full object-cover object-center"
       />
 
       {/* Overlay */}

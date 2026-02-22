@@ -87,12 +87,11 @@ export default function Header() {
               onClick={() => navigateWithEffect("/")}
               className="relative w-36 h-26"
             >
-              <Image
+              <img
                 src="/assets/footer-n-logo.png"
                 alt="Logo"
-                fill
-                priority
-                className="object-contain"
+                
+                className="w-full h-full  object-contain"
               />
             </button>
 

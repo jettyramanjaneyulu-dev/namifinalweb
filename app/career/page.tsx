@@ -10,6 +10,7 @@ import {
   Globe,
   TrendingUp,
 } from "lucide-react";
+import { isSafari } from "@/lib/isSafari";
 
 export default function CareerPage() {
   return (
@@ -38,8 +39,8 @@ export default function CareerPage() {
 
   {/* ================= CONTENT ================= */}
   <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    animate={{ opacity: 1, y: 0 }}
+   initial={isSafari ? false : { opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
     className="relative z-10 w-full flex justify-center px-4 sm:px-6"
   >
@@ -184,8 +185,8 @@ export default function CareerPage() {
 
     {/* Header */}
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={isSafari ? false : { opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
       
       transition={{ duration: 0.7 }}
       className="text-center mb-20"
@@ -239,8 +240,8 @@ export default function CareerPage() {
   {reasons.map((item, index) => (
     <motion.div
       key={index}
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
+     initial={isSafari ? false : { opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
       
       transition={{ delay: index * 0.12, duration: 0.6 }}
       className="relative pl-20"

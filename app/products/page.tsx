@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { FlaskConical } from "lucide-react";
-
+import { isSafari } from "@/lib/isSafari";
 import {
   HeartPulse,
   Pill,
@@ -86,13 +86,12 @@ export default function ProductsPage() {
 <section className="relative w-full min-h-[65vh] sm:min-h-[70vh] md:min-h-[75vh] lg:min-h-[80vh] flex items-center overflow-hidden">
 
   {/* Background Image */}
-  <Image
+  <img
     src="/assets/images/products.png"
     alt="Pharmaceutical Pellets"
-    fill
-    priority
+    
     sizes="100vw"
-    className="object-cover scale-105"
+    className="w-full h-full object-cover scale-105"
   />
 
   {/* Dark Overlay */}
@@ -101,8 +100,8 @@ export default function ProductsPage() {
   {/* Content Wrapper */}
   <div className="relative z-10 w-full flex justify-center lg:justify-start px-4 sm:px-6 lg:px-20">
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={isSafari ? false : { opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       className="
         

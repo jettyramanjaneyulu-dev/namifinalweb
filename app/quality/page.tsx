@@ -205,7 +205,7 @@ export default function QualityPage() {
               transform-gpu rotate-y-[-8deg] rotate-x-[4deg] "
               style={{ perspective: "1200px" }}
             >
-              <Image
+              <img
                 src="/assets/images/quality.png"
                 alt="Quality Assurance Laboratory"
                 width={480}

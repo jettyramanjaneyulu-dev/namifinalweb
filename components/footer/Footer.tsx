@@ -39,11 +39,10 @@ export default function Footer() {
 
             {/* Logo */}
             <div className="relative w-35 h-35">
-              <Image
+              <img
                 src="/assets/footer-n-logo.png"
                 alt="NAMI Logo"
-                fill
-                className="object-contain"
+                className="w-full h-full object-contain"
               />
             </div>
 

@@ -38,7 +38,7 @@ export default function Pharmaceuticals() {
       className="flex items-center gap-6 cursor-pointer group"
     >
       <div className="w-16 h-16 rounded-full overflow-hidden border border-[#014d8b]/30">
-        <Image src={img} width={100} height={100} alt={title} />
+        <img src={img} width={100} height={100} alt={title} />
       </div>
 
       <span className="font-bold text-lg flex items-center gap-2">

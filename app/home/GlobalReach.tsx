@@ -39,7 +39,7 @@ export default function GlobalReach() {
               {/* Item 1 */}
               <div className="flex items-center gap-6 group cursor-pointer">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#014d8b]/20">
-                  <Image
+                  <img
                     src="/assets/international_standards.png"
                     width={100}
                     height={100}
@@ -61,7 +61,7 @@ export default function GlobalReach() {
               {/* Item 2 */}
               <div className="flex items-center gap-6 group cursor-pointer">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#014d8b]/20">
-                  <Image
+                  <img
                     src="/assets/ethical_principles.png"
                     width={100}
                     height={100}

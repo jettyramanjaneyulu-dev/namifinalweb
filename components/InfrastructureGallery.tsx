@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useAnimationControls } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { isSafari } from "@/lib/isSafari";
 
 const infraImages = [
   "/assets/images/infra/infra.png",
@@ -61,8 +62,8 @@ export default function InfrastructureGalleryPage() {
 
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+              initial={isSafari ? false : { opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
             
             transition={{ duration: 0.7 }}
             className="text-center mb-12"
@@ -101,11 +102,11 @@ export default function InfrastructureGalleryPage() {
                              rounded-3xl overflow-hidden bg-white shadow-lg
                              cursor-pointer"
                 >
-                  <Image
+                  <img
                     src={img}
                     alt={`Infrastructure ${index + 1}`}
-                    fill
-                    className="object-cover transition duration-700 hover:scale-105"
+                    
+                    className="w-full h-full object-cover transition duration-700 hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/10" />
                 </div>

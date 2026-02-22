@@ -15,12 +15,12 @@ export default function StorySection() {
         {/* IMAGE SIDE */}
         <div className="relative h-[520px]">
           <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden shadow-2xl">
-            <Image
+            <img
               src="/assets/lab-1.jpeg"
               alt="Nami Life Sciences R&D Facility"
-              fill
-              className="object-cover"
-              priority
+              
+              className="w-full h-full object-cover"
+              
             />
           </div>
 

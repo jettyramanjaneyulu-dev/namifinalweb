@@ -82,7 +82,7 @@ export default function GalleryPage() {
               key={index}
               className="relative overflow-hidden rounded-2xl group break-inside-avoid shadow-lg"
             >
-              <Image
+              <img
                 src={img.src}
                 alt={img.title}
                 width={600}

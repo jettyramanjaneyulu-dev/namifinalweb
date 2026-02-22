@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import InfrastructureGalleryPage from "@/components/InfrastructureGallery";
 import FloatingCapsules from "../about/FloatingCapsules";
+import { isSafari } from "@/lib/isSafari";
 
 export default function InfrastructurePage() {
   return (
@@ -185,8 +186,8 @@ export default function InfrastructurePage() {
 
     {/* Section Header */}
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={isSafari ? false : { opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
       
       transition={{ duration: 0.7 }}
       className="text-center mb-20"
