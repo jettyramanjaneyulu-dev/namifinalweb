@@ -114,8 +114,8 @@ export default function InfrastructurePage() {
 
   <motion.div
     initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
+    animate={{ opacity: 1, y: 0 }}
+    
     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center"
   >
@@ -186,8 +186,8 @@ export default function InfrastructurePage() {
     {/* Section Header */}
     <motion.div
       initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, y: 0 }}
+      
       transition={{ duration: 0.7 }}
       className="text-center mb-20"
     >
@@ -209,8 +209,8 @@ export default function InfrastructurePage() {
         <motion.div
           key={index}
           initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
+          
           transition={{ duration: 0.6, delay: index * 0.1 }}
           className={`relative group grid md:grid-cols-[120px_1fr] gap-10 items-start
             ${index % 2 !== 0 ? "md:ml-24" : ""}`}
@@ -261,8 +261,8 @@ export default function InfrastructurePage() {
 
   <motion.div
     initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
+    animate={{ opacity: 1, y: 0 }}
+    
     transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
     className="relative max-w-4xl mx-auto text-center"
   >
@@ -285,8 +285,8 @@ export default function InfrastructurePage() {
     {/* Subtle Trust Cue */}
     <motion.span
       initial={{ width: 0 }}
-      whileInView={{ width: "120px" }}
-      viewport={{ once: true }}
+      animate={{ width: "120px" }}
+      
       transition={{ delay: 0.6, duration: 0.8 }}
       className="block mx-auto mt-6 h-[2px] bg-[#ff4d9d]/60 rounded-full"
     />

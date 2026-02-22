@@ -86,8 +86,8 @@ export default function GlobalReach() {
           <div className="order-2 lg:order-1 relative flex justify-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, scale: 1 }}
+              
               transition={{ duration: 0.9, ease: "easeOut" }}
               className="
                 relative

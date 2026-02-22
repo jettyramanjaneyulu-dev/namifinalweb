@@ -93,8 +93,8 @@ export default function ManufacturingSection() {
           <div className="order-1 lg:order-2 relative flex justify-center">
             <motion.div
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1 }}
+              
               transition={{ duration: 0.8 }}
               className="relative w-80 h-80 md:w-[520px] md:h-[520px] rounded-full overflow-hidden  z-10"
             >

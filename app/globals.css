@@ -9,7 +9,11 @@
     --vw: 1svw;
   }
 }
-
+/* Safari animation fix */
+.safari-animate {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
 @import "tailwindcss";
 
 /* ===============================

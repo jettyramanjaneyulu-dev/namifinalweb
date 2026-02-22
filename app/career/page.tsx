@@ -114,8 +114,8 @@ export default function CareerPage() {
     {/* LEFT — CONTENT */}
     <motion.div
       initial={{ opacity: 0, x: -40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, x: 0 }}
+      
       transition={{ duration: 0.8 }}
     >
       <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
@@ -147,8 +147,8 @@ export default function CareerPage() {
     {/* RIGHT — VISUAL PANEL */}
     <motion.div
       initial={{ opacity: 0, x: 40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, x: 0 }}
+      
       transition={{ duration: 0.8 }}
       className="relative"
     >
@@ -185,8 +185,8 @@ export default function CareerPage() {
     {/* Header */}
     <motion.div
       initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, y: 0 }}
+      
       transition={{ duration: 0.7 }}
       className="text-center mb-20"
     >
@@ -204,8 +204,8 @@ export default function CareerPage() {
       {/* LEFT — VALUE STATEMENT */}
       <motion.div
         initial={{ opacity: 0, x: -40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
+        animate={{ opacity: 1, x: 0 }}
+        
         transition={{ duration: 0.8 }}
         className="sticky top-28"
       >
@@ -240,9 +240,9 @@ export default function CareerPage() {
     <motion.div
       key={index}
       initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.12 }}
+      animate={{ opacity: 1, y: 0 }}
+      
+      transition={{ delay: index * 0.12, duration: 0.6 }}
       className="relative pl-20"
     >
       {/* Icon Node */}
@@ -278,8 +278,8 @@ export default function CareerPage() {
 
   <motion.div
     initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
+    animate={{ opacity: 1, y: 0 }}
+    
     transition={{ duration: 0.8, ease: "easeOut" }}
     className="relative backdrop-blur-0xl border border-white/40 rounded-[2.5rem] p-12 md:p-16 shadow-2xl"
   >
@@ -331,8 +331,8 @@ export default function CareerPage() {
     {/* LEFT — CALL TO ACTION */}
     <motion.div
       initial={{ opacity: 0, x: -40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, x: 0 }}
+      
       transition={{ duration: 0.8 }}
     >
       <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
@@ -363,8 +363,8 @@ export default function CareerPage() {
     {/* RIGHT — FORM */}
     <motion.div
       initial={{ opacity: 0, x: 40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, x: 0 }}
+      
       transition={{ duration: 0.8 }}
       className="relative"
     >

@@ -163,8 +163,8 @@ export default function ProductsPage() {
   <motion.div
     variants={fadeUp}
     initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
+    animate="visible"
+    
     className="
       relative max-w-6xl
       rounded-3xl p-8 md:p-10
@@ -194,8 +194,8 @@ export default function ProductsPage() {
     <motion.h2
       variants={fadeUp}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
+      animate="visible"
+      
       className="text-3xl font-bold text-pink-500 uppercase mb-12"
     >
       Our Capabilities
@@ -210,8 +210,8 @@ export default function ProductsPage() {
             key={index}
             variants={fadeUp}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
+            
             whileHover={{ y: -8 }}
             className="
               bg-white/70 backdrop-blur-xl
@@ -238,8 +238,8 @@ export default function ProductsPage() {
   <motion.h2
     variants={fadeUp}
     initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
+    animate="visible"
+    
     className="text-3xl font-bold text-pink-500 uppercase mb-12"
   >
     Therapeutic Coverage
@@ -254,8 +254,8 @@ export default function ProductsPage() {
           key={index}
           variants={fadeUp}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          animate="visible"
+          
           whileHover={{ scale: 1.04 }}
           className="relative group rounded-xl p-[2px]"
         >
@@ -295,8 +295,8 @@ export default function ProductsPage() {
   <motion.div
     variants={fadeUp}
     initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
+    animate="visible"
+    
     className="max-w-5xl mx-auto px-8 text-center bg-white/70 backdrop-blur-0xl rounded-3xl border border-white/40 shadow-xl py-14"
   >
     <FlaskConical className="w-10 h-10 text-pink-500 mx-auto mb-5" />

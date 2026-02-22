@@ -125,8 +125,8 @@ export default function ReachUsPage() {
     {/* Section Header */}
     <motion.div
       initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, y: 0 }}
+      
       className="text-center mb-16"
     >
       <span className="inline-block px-4 py-1 rounded-full bg-pink-100 text-pink-700 text-sm font-medium">
@@ -142,8 +142,8 @@ export default function ReachUsPage() {
       {/* ===== MANUFACTURING FACILITY ===== */}
       <motion.div
         initial={{ opacity: 0, x: -40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
+        animate={{ opacity: 1, x: 0 }}
+        
         transition={{ duration: 0.7 }}
         className="relative  border border-white/50 rounded-[32px] p-10 shadow-2xl"
       >
@@ -170,8 +170,8 @@ export default function ReachUsPage() {
       {/* ===== CORPORATE OFFICE ===== */}
       <motion.div
         initial={{ opacity: 0, x: 40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
+        animate={{ opacity: 1, x: 0 }}
+        
         transition={{ duration: 0.7 }}
         className="relative  border border-white/50 rounded-[32px] p-10 shadow-2xl"
       >
@@ -213,8 +213,8 @@ export default function ReachUsPage() {
     {/* Header */}
     <motion.div
       initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, y: 0 }}
+      
       className="text-center mb-16"
     >
       <span className="inline-block px-4 py-1 rounded-full bg-pink-100 text-pink-700 text-sm font-medium">
@@ -252,8 +252,8 @@ export default function ReachUsPage() {
       target="_blank"
       rel="noopener noreferrer"
       initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, y: 0 }}
+      
       whileHover={{ y: -6, scale: 1.015 }}
       transition={{ type: "spring", stiffness: 160, damping: 18 }}
       className="group relative block rounded-[28px] overflow-hidden bg-white border border-gray-200 shadow-[0_20px_60px_-25px_rgba(0,0,0,0.35)]"
@@ -302,8 +302,8 @@ export default function ReachUsPage() {
 
   <motion.div
     initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
+    animate={{ opacity: 1, y: 0 }}
+    
     transition={{ duration: 0.8 }}
     className="relative max-w-6xl mx-auto"
   >

@@ -62,8 +62,8 @@ export default function InfrastructureGalleryPage() {
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
+            
             transition={{ duration: 0.7 }}
             className="text-center mb-12"
           >
