@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 type PageTransitionProps = {
   triggerSecond?: boolean;
@@ -10,7 +10,7 @@ type PageTransitionProps = {
 export default function PageTransition({ triggerSecond }: PageTransitionProps) {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
     setIsMobile(mq.matches);
   }, []);

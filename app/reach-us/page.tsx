@@ -439,12 +439,12 @@ function FloatingCapsules() {
           key={i}
           initial={{
             x: `${cap.x}vw`,
-            y: "110vh",
+            y: "1100",
             opacity: 0,
             rotate: 0,
           }}
           animate={{
-            y: "-20vh",
+            y: "-200",
             opacity: [0, 0.35, 0.35, 0],
             rotate: 360,
           }}
