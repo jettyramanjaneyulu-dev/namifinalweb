@@ -3,7 +3,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 
 /* ================= MANUFACTURING SECTION ================= */
 
@@ -49,8 +48,6 @@ export default function ManufacturingSection() {
                   <img
                     src="/assets/safety_protocols.png"
                     alt="Safety Protocols"
-                    width={100}
-                    height={100}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -71,8 +68,6 @@ export default function ManufacturingSection() {
                   <img
                     src="/assets/quality_control.png"
                     alt="Quality Control"
-                    width={100}
-                    height={100}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -89,24 +84,45 @@ export default function ManufacturingSection() {
             </div>
           </div>
 
-          {/* RIGHT IMAGE CIRCLE */}
+          {/* RIGHT IMAGE CIRCLE - FIXED FOR iOS */}
           <div className="order-1 lg:order-2 relative flex justify-center">
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative w-80 h-80 md:w-[520px] md:h-[520px] rounded-full overflow-hidden  z-10"
+              className="relative w-80 h-80 md:w-[520px] md:h-[520px] z-10"
+              style={{
+                // Masks the image into a circle
+                clipPath: "circle(50% at 50% 50%)",
+                WebkitClipPath: "circle(50% at 50% 50%)",
+                // Prevents flickering during scroll on mobile
+                transform: "translateZ(0)",
+              }}
             >
-              <div className="absolute inset-0 bg-[url('/assets/Manufacturing.png')] bg-cover bg-center bg-no-repeat bg-fixed" />
-
-              {/* Gradient Overlay */}
-              {/* <div className="absolute inset-0 bg-gradient-to-tr from-[#C93A7C]/30 via-transparent to-transparent mix-blend-overlay pointer-events-none" /> */}
+              {/* iOS FIX: Use a fixed pseudo-element instead of bg-fixed */}
+              <div 
+                className="absolute inset-0 
+                  before:content-[''] 
+                  before:fixed 
+                  before:inset-0 
+                  before:z-[-1] 
+                  before:bg-[url('/assets/Manufacturing.png')] 
+                  before:bg-cover 
+                  before:bg-center 
+                  before:bg-no-repeat
+                  before:will-change-transform
+                  bg-cover bg-center sm:bg-fixed"
+                style={{ 
+                  height: '100%', 
+                  width: '100%',
+                }}
+              />
             </motion.div>
 
             {/* Ambient Glow */}
             <div className="absolute inset-0 flex items-center justify-center -z-10">
-              {/* <div className="w-[110%] h-[110%] bg-[#C93A7C] blur-[80px] opacity-10 rounded-full" /> */}
+               <div className="w-[110%] h-[110%] bg-[#C93A7C] blur-[100px] opacity-10 rounded-full" />
             </div>
           </div>
 
