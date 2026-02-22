@@ -17,7 +17,7 @@ export default function Pharmaceuticals() {
           {/* LEFT CONTENT */}
           <div className="order-2 lg:order-1">
             <div className="flex items-center gap-4 mb-6">
-              <h2 className="text-4xl font-black text-[#014d8b] uppercase tracking-wider">
+              <h2 className="text-2xl font-black text-[#014d8b] uppercase tracking-wider">
                 Pharmaceuticals
               </h2>
             </div>

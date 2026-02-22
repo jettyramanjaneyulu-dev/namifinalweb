@@ -21,7 +21,7 @@ export default function ManufacturingSection() {
             {/* TITLE */}
             <div className="flex items-center gap-4 mb-6">
               <h2
-                className="text-4xl font-black text-[#C93A7C] uppercase tracking-wider"
+                className="text-2xl font-black text-[#C93A7C] uppercase tracking-wider"
                 style={{ fontFamily: "var(--font-orbitron)" }}
               >
                 Manufacturing
