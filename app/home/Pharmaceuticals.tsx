@@ -59,7 +59,7 @@ export default function Pharmaceuticals() {
 
           {/* RIGHT IMAGE - FULLY FIXED FOR iOS SCROLL */}
           <div className="order-1 lg:order-2 relative flex justify-center">
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -72,7 +72,18 @@ export default function Pharmaceuticals() {
                 // Fixes a flickering issue on some iOS versions
                 transform: "translateZ(0)",
               }}
-            >
+            > */}
+             <motion.div
+  initial={{ opacity: 0, scale: 0.9 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  className="relative w-72 h-72 md:w-[520px] md:h-[520px] z-10"
+  style={{
+    clipPath: "circle(50% at 50% 50%)",
+    WebkitClipPath: "circle(50% at 50% 50%)",
+    transform: "translateZ(0)",
+  }}
+>
               {/* THE FIX: 
                 On iOS, 'bg-fixed' is broken. Instead, we use 'before:fixed'.
                 The 'before' pseudo-element is fixed to the viewport.

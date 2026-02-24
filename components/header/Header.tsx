@@ -7,24 +7,44 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Menu, X, ChevronDown } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
-
+import { useEffect } from "react";
 
 /* ------------------ ANIMATED MENU ITEM ------------------ */
+// const AnimatedMenuItem = ({
+//   children,
+//   onClick,
+//   mobile = false,
+// }: {
+//   children: React.ReactNode;
+//   onClick?: () => void;
+//   mobile?: boolean;
+// }) => {
+//   return (
+//     <button
+//       onClick={onClick}
+//       className="relative overflow-hidden px-2 py-1
+//         uppercase text-sm font-bold tracking-wider
+//         cursor-pointer text-[#014d8b]"
+//     >
+
 const AnimatedMenuItem = ({
   children,
   onClick,
   mobile = false,
+  href,
 }: {
   children: React.ReactNode;
   onClick?: () => void;
   mobile?: boolean;
+  href?: string;
 }) => {
+  const router = useRouter();
+
   return (
     <button
+      onMouseEnter={() => href && router.prefetch(href)}
       onClick={onClick}
-      className="relative overflow-hidden px-2 py-1
-        uppercase text-sm font-bold tracking-wider
-        cursor-pointer text-[#014d8b]"
+      className="relative overflow-hidden px-2 py-1 uppercase text-sm font-bold tracking-wider cursor-pointer text-[#014d8b]"
     >
       <motion.span
         initial={mobile ? { y: "-100%" } : { x: "-100%" }}
@@ -41,7 +61,18 @@ const AnimatedMenuItem = ({
 
 export default function Header() {
   const router = useRouter();
-
+useEffect(() => {
+  router.prefetch("/about");
+  router.prefetch("/products");
+  router.prefetch("/products/list");
+  router.prefetch("/quality");
+  router.prefetch("/infrastructure");
+  router.prefetch("/career");
+  router.prefetch("/gallery");
+  router.prefetch("/reach-us");
+  router.prefetch("/blog");
+  router.prefetch("/admin/login");
+}, [router]);
   const [transitioning, setTransitioning] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
@@ -56,7 +87,7 @@ export default function Header() {
   // wait for animation to finish
   setTimeout(() => {
     router.push(href);
-  }, 2300);
+  }, 600);
 
   // unmount animation after redirect
   setTimeout(() => {
@@ -98,9 +129,7 @@ export default function Header() {
 
             {/* DESKTOP MENU */}
             <div className="hidden lg:flex items-center gap-8">
-              <AnimatedMenuItem onClick={() => navigateWithEffect("/about")}>
-                About Us
-              </AnimatedMenuItem>
+             <AnimatedMenuItem onClick={() => navigateWithEffect("/about")}> About Us </AnimatedMenuItem>
 
               <div className="relative group">
                 <div className="flex items-center gap-1">

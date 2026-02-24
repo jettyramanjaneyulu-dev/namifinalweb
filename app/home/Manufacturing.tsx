@@ -86,7 +86,7 @@ export default function ManufacturingSection() {
 
           {/* RIGHT IMAGE CIRCLE - FIXED FOR iOS */}
           <div className="order-1 lg:order-2 relative flex justify-center">
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -99,7 +99,18 @@ export default function ManufacturingSection() {
                 // Prevents flickering during scroll on mobile
                 transform: "translateZ(0)",
               }}
-            >
+            > */}
+            <motion.div
+  initial={{ opacity: 0, scale: 0.9 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  className="relative w-80 h-80 md:w-[520px] md:h-[520px] z-10"
+  style={{
+    clipPath: "circle(50% at 50% 50%)",
+    WebkitClipPath: "circle(50% at 50% 50%)",
+    transform: "translateZ(0)",
+  }}
+>
               {/* iOS FIX: Use a fixed pseudo-element instead of bg-fixed */}
               <div 
                 className="absolute inset-0 

@@ -15,7 +15,7 @@ export default function GlobalReach() {
 
           {/* ================= RIGHT CAPSULE IMAGE (MOBILE FIRST) ================= */}
           <div className="order-1 lg:order-1 relative flex justify-center">
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -26,7 +26,18 @@ export default function GlobalReach() {
                 WebkitClipPath: "inset(0 round 9999px)",
                 transform: "translateZ(0)",
               }}
-            >
+            > */}
+            <motion.div
+  initial={{ opacity: 0, scale: 0.95 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.9, ease: "easeOut" }}
+  className="relative w-[340px] h-64 md:w-[520px] md:h-[280px] z-10"
+  style={{
+    clipPath: "inset(0 round 9999px)",
+    WebkitClipPath: "inset(0 round 9999px)",
+    transform: "translateZ(0)",
+  }}
+>
               <div
                 className="absolute inset-0 
                   before:content-[''] 
