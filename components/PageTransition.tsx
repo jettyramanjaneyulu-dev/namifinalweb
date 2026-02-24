@@ -44,17 +44,17 @@ export default function PageTransition({ triggerSecond }: PageTransitionProps) {
       />
 
       {/* ===== SLIDE 2 : LIGHT BLUE ===== */}
-      <motion.div
+      {/* <motion.div
         className="absolute inset-0 bg-[#00B4D8]"
         initial={initial}
         animate={animate}
         exit={exit}
         transition={{ duration: D, delay: D, ease: "easeInOut" }}
-      />
+      /> */}
 
       {/* ===== SLIDE 3 : IMAGE ===== */}
       <motion.div
-        className="absolute inset-0 flex items-center justify-center bg-black"
+        className="absolute inset-0 flex items-center justify-center bg-white"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -75,7 +75,7 @@ export default function PageTransition({ triggerSecond }: PageTransitionProps) {
      
         <>
           {/* Dark Blue */}
-          <motion.div
+          {/* <motion.div
             className="absolute inset-0 bg-[#0A4C8B]"
             initial={initial}
             animate={animate}
@@ -85,7 +85,7 @@ export default function PageTransition({ triggerSecond }: PageTransitionProps) {
               delay: D * 2.7,
               ease: "easeInOut",
             }}
-          />
+          /> */}
 
           {/* Light Blue */}
           <motion.div
