@@ -613,60 +613,46 @@ const isBlended = activeGroup === "COMBO";
 
   return (
     <main className="min-h-screen bg-white text-black">
- {/* ================= HERO ================= */}
-<section className="relative min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh] lg:min-h-[85vh] flex items-center overflow-hidden">
+{/* ================= HERO ================= */}
+<section className="relative min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh] lg:min-h-[85vh] flex items-center justify-center overflow-hidden text-center">
 
   {/* ================= BACKGROUND IMAGE ================= */}
   <div
     className="absolute inset-0 bg-cover bg-center scale-105"
     style={{
-      backgroundImage: "url('/assets/images/infra/infra5.png')",
+      backgroundImage: "url('/assets/images/product_list.png')",
     }}
   />
 
-  {/* Optional overlay for readability */}
-  <div className="absolute inset-0 bg-black/20" />
+  {/* Overlay for readability */}
+  <div className="absolute inset-0 bg-black/40" />
 
-  {/* ================= CONTENT (GLASS BOX) ================= */}
-  <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-20 flex justify-center lg:justify-start">
-    <div
+  {/* ================= CENTER CONTENT ================= */}
+  <div className="relative z-10 px-6 max-w-4xl">
+    <h1
       className="
-        
-        max-w-[92%] sm:max-w-xl md:max-w-3xl lg:max-w-4xl
-        bg-white/60 backdrop-blur-lg
-        rounded-2xl sm:rounded-3xl
-        shadow-[0_20px_60px_rgba(0,0,0,0.25)]
-        border border-white/40
-        py-8 sm:py-10 md:py-14
-        px-6 sm:px-8 md:px-10
-        text-center lg:text-left
+        text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl
+        font-extrabold
+        text-pink-500
+        uppercase
+        tracking-wide
       "
     >
-      <h1
-        className="
-          text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
-          font-extrabold
-          text-pink-600
-          uppercase
-          tracking-wide
-        "
-      >
-        Product Portfolio
-      </h1>
+      Product Portfolio
+    </h1>
 
-      <p
-        className="
-          mt-4 sm:mt-5 md:mt-6
-          text-sm sm:text-base md:text-lg
-          text-gray-700
-          leading-relaxed
-        "
-      >
-        Precision-engineered pharmaceutical pellets, advanced
-        release systems, combination formulations, and
-        nutraceutical beadlets.
-      </p>
-    </div>
+    <p
+      className="
+        mt-4 sm:mt-6
+        text-sm sm:text-base md:text-lg
+        text-white/90
+        leading-relaxed
+      "
+    >
+      Precision-engineered pharmaceutical pellets, advanced
+      release systems, combination formulations, and
+      nutraceutical beadlets.
+    </p>
   </div>
 
   {/* ================= CURVED BOTTOM ================= */}

@@ -3,49 +3,40 @@ import { Sparkles } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative flex items-center justify-center min-h-[70vh] sm:min-h-[80vh] lg:min-h-screen overflow-hidden">
+    <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-screen overflow-hidden flex items-center justify-center text-center">
 
       {/* Background Image */}
-      <img
-        src="/assets/Pharmaceuticals1.png"
-        alt="Nami Life Sciences Laboratory"
-        
-        className="w-full h-full object-cover object-center"
-      />
+      <div className="absolute inset-0">
+        <Image
+          src="/assets/images/about-us.png"
+          alt="Nami Life Sciences Laboratory"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/55 sm:bg-black/45" />
+      </div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50 sm:bg-black/40" />
+      {/* Centered Content */}
+      <div className="relative z-10 px-4 sm:px-6 max-w-4xl mx-auto flex flex-col items-center">
 
-      {/* Content Wrapper */}
-      <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-        <div
-          className="
-            inline-block
-            w-full sm:w-auto
-            bg-white/20 backdrop-blur-xl
-            border border-white/30
-            rounded-2xl sm:rounded-3xl
-            px-6 py-8 sm:px-10 sm:py-12
-            shadow-[0_25px_70px_rgba(0,0,0,0.3)]
-          "
-        >
-          {/* Icon */}
-          <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 text-[#c93a7c] mb-4 sm:mb-6" />
+        {/* Icon */}
+        <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 text-[#f5b3d1] mb-4 sm:mb-6" />
 
-          {/* Heading */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
-            Precision in <br />
-            <span className="font-semibold text-[#f5b3d1]">
-              Every Pellet
-            </span>
-          </h1>
+        {/* Heading */}
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
+          Precision in <br />
+          <span className="font-semibold text-[#f5b3d1]">
+            Every Pellet
+          </span>
+        </h1>
 
-          {/* Description */}
-          <p className="mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg text-white/90">
-            Engineering advanced pellet-based drug delivery systems that combine
-            science, technology, and reliability.
-          </p>
-        </div>
+        {/* Description */}
+        <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-white/90 max-w-2xl">
+          Engineering advanced pellet-based drug delivery systems that combine
+          science, technology, and reliability.
+        </p>
       </div>
 
       {/* Bottom Curve */}
@@ -53,7 +44,7 @@ export default function HeroSection() {
         <svg
           viewBox="0 0 1440 120"
           preserveAspectRatio="none"
-          className="w-full h-[80px] sm:h-[100px]"
+          className="w-full h-[70px] sm:h-[90px]"
         >
           <path
             d="M0,60 C360,100 720,20 1080,60 1260,80 1440,60 1440,60 L1440,120 L0,120 Z"

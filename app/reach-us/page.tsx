@@ -19,72 +19,56 @@ export default function ReachUsPage() {
   return (
     <main className="relative bg-[#f6f7fb] overflow-hidden">
 
-  {/* ================= HERO ================= */}
+{/* ================= HERO ================= */}
 <section
   className="
     relative
-    flex items-center
+    flex items-center justify-center
     overflow-hidden
-    bg-[#f6f7fb]
     h-[60vh] sm:h-[65vh] md:h-[75vh]
   "
 >
   {/* ================= BACKGROUND IMAGE ================= */}
   <div
-    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
     style={{ backgroundImage: "url('/assets/images/reach-us.png')" }}
   />
 
   {/* Dark Overlay */}
   <div className="absolute inset-0 bg-black/50" />
 
-  {/* ================= CONTENT ================= */}
+  {/* ================= CENTER CONTENT ================= */}
   <motion.div
     initial={isSafari ? false : { opacity: 0, y: 30 }}
-  animate={{ opacity: 1, y: 0 }}
+    animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
     className="
       relative z-10
-     
-      px-4 sm:px-6 lg:px-20
-      flex justify-center lg:justify-end
+      text-center
+      px-4 sm:px-6
     "
   >
-    {/* Glassy Box */}
-    <div
+    <h1
       className="
-        text-center
-        max-w-3xl w-full
-        bg-white/25 backdrop-blur-xl
-        border border-white/30
-        rounded-2xl sm:rounded-3xl
-        shadow-[0_20px_60px_rgba(0,0,0,0.35)]
-        px-6 sm:px-10
-        py-8 sm:py-10
+        text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+        font-extrabold
+        text-[#ff4d9d]
+        tracking-wide
+        uppercase
       "
     >
-      <h1
-        className="
-          text-3xl sm:text-4xl md:text-5xl
-          font-extrabold
-          text-[#ff4d9d]
-          tracking-wide
-          uppercase
-        "
-      >
-        Reach Us
-      </h1>
+      Reach Us
+    </h1>
 
-      <p
-        className="
-          mt-4 sm:mt-6
-          text-sm sm:text-base md:text-lg
-          text-white/90
-        "
-      >
-        Let’s Build Better Solutions Together
-      </p>
-    </div>
+    <p
+      className="
+        mt-3 sm:mt-4
+        text-sm sm:text-base md:text-lg
+        text-white/90
+      "
+    >
+      Let’s Build Better Solutions Together
+    </p>
   </motion.div>
 
   {/* ================= BOTTOM WAVE ================= */}

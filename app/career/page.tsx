@@ -30,7 +30,7 @@ export default function CareerPage() {
   <div
     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
     style={{
-      backgroundImage: "url('/assets/images/infra/infra7.png')",
+      backgroundImage: "url('/assets/images/career.png')",
     }}
   />
 
@@ -49,10 +49,7 @@ export default function CareerPage() {
       className="
         text-center
         max-w-3xl
-        bg-white/25 backdrop-blur-xl
-        border border-white/30
-        rounded-2xl sm:rounded-3xl
-        shadow-[0_20px_60px_rgba(0,0,0,0.35)]
+        
         px-6 sm:px-10
         py-8 sm:py-10
       "

@@ -140,3 +140,32 @@ svg {
   visibility: visible !important;
   fill: currentColor !important;
 }
+/* SAFARI HEADER FIX */
+nav {
+  position: sticky;
+  top: 0;
+  isolation: isolate;
+}
+/* ===============================
+   SAFARI / MOBILE DOT FIX
+   =============================== */
+
+/* Hide floating blobs on mobile */
+@media (max-width: 768px) {
+  .blob,
+  .gradient-blob,
+  .floating-dot,
+  .background-blob,
+  [class*="blob"],
+  [class*="gradient"] {
+    display: none !important;
+  }
+}
+
+/* ===============================
+   STOP BREATHE EFFECT IN HEADER
+   =============================== */
+
+nav .breathe-wrap::before {
+  display: none !important;
+}

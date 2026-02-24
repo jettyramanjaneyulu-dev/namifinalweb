@@ -83,70 +83,37 @@ export default function ProductsPage() {
     <main className="bg-white overflow-hidden">
 
      {/* ================= HERO SECTION ================= */}
-<section className="relative w-full min-h-[65vh] sm:min-h-[70vh] md:min-h-[75vh] lg:min-h-[80vh] flex items-center overflow-hidden">
+<section className="relative w-full min-h-[65vh] sm:min-h-[70vh] md:min-h-[75vh] lg:min-h-[80vh] flex items-center justify-center overflow-hidden">
 
   {/* Background Image */}
   <img
     src="/assets/images/products.png"
     alt="Pharmaceutical Pellets"
-    
-    sizes="100vw"
-    className="w-full h-full object-cover scale-105"
+    className="absolute inset-0 w-full h-full object-cover object-center scale-105 z-0"
   />
 
   {/* Dark Overlay */}
-  <div className="absolute inset-0 bg-black/40" />
+  <div className="absolute inset-0 bg-black/45 z-10" />
 
-  {/* Content Wrapper */}
-  <div className="relative z-10 w-full flex justify-center lg:justify-start px-4 sm:px-6 lg:px-20">
-    <motion.div
-      initial={isSafari ? false : { opacity: 0, y: 30 }}
-  animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      className="
-        
-        max-w-[92%] sm:max-w-xl md:max-w-3xl lg:max-w-4xl
-        text-center lg:text-left
-        bg-white/30 backdrop-blur-xl
-        rounded-2xl md:rounded-3xl
-        border border-white/40
-        shadow-[0_20px_60px_rgba(0,0,0,0.25)]
-        px-6 sm:px-8 md:px-12
-        py-8 sm:py-10 md:py-12
-      "
-    >
-      <h1
-        className="
-          text-2xl sm:text-3xl md:text-4xl lg:text-5xl
-          font-extrabold
-          text-pink-500
-          uppercase
-          tracking-wide
-        "
-      >
-        Products
-      </h1>
+  {/* CENTERED CONTENT */}
+  <motion.div
+    initial={isSafari ? false : { opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className="relative z-20 text-center px-4"
+  >
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-pink-500 uppercase tracking-wide">
+      Products
+    </h1>
 
-      <p
-        className="
-          mt-3 sm:mt-4
-          text-sm sm:text-base md:text-lg lg:text-xl
-          text-white
-          leading-relaxed
-        "
-      >
-        Pharmaceutical Pellets & Nutraceutical Beadlets
-      </p>
-    </motion.div>
-  </div>
+    <p className="mt-4 text-sm sm:text-base md:text-lg lg:text-xl text-white">
+      Pharmaceutical Pellets & Nutraceutical Beadlets
+    </p>
+  </motion.div>
 
   {/* Bottom Curve */}
-  <div className="absolute bottom-0 left-0 w-full leading-none">
-    <svg
-      viewBox="0 0 1440 100"
-      preserveAspectRatio="none"
-      className="w-full h-[60px] sm:h-[80px] md:h-[100px]"
-    >
+  <div className="absolute bottom-0 left-0 w-full leading-none z-30">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" className="w-full h-[80px]">
       <path
         fill="#ffffff"
         d="M0,50 C360,90 720,10 1080,50 1260,70 1440,50 1440,50 L1440,100 L0,100 Z"

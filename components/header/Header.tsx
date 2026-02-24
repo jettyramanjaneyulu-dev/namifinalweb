@@ -30,7 +30,7 @@ const AnimatedMenuItem = ({
         initial={mobile ? { y: "-100%" } : { x: "-100%" }}
         whileHover={mobile ? { y: "100%" } : { x: "100%" }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="absolute inset-0
+        className="absolute inset-0 
           bg-gradient-to-r from-[#C93A7C] via-[#ff7ab6] to-[#C93A7C]
           opacity-30"
       />
@@ -46,40 +46,45 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
 
-  const navigateWithEffect = (href: string) => {
-  if (transitioning) return; // prevent double click
+//   const navigateWithEffect = (href: string) => {
+//   if (transitioning) return; // prevent double click
 
-  setTransitioning(true);
+//   setTransitioning(true);
+//   setMobileMenuOpen(false);
+//   setMobileProductsOpen(false);
+
+//   // wait for animation to finish
+//   setTimeout(() => {
+//     router.push(href);
+//   }, 2300);
+
+//   // unmount animation after redirect
+//   setTimeout(() => {
+//     setTransitioning(false);
+//   }, 2400);
+// };
+
+const navigateWithEffect = (href: string) => {
   setMobileMenuOpen(false);
   setMobileProductsOpen(false);
-
-  // wait for animation to finish
-  setTimeout(() => {
-    router.push(href);
-  }, 2300);
-
-  // unmount animation after redirect
-  setTimeout(() => {
-    setTransitioning(false);
-  }, 2400);
+  router.push(href);
 };
-
-
 
   return (
     <>
       {/* ================= NAVBAR ================= */}
       
-      <nav
-        className="
-          sticky top-0 z-40 w-full
-          bg-white/10
-          backdrop-blur-xl backdrop-saturate-150
-          border-b border-white/20
-          shadow-lg
-          transition-all duration-300
-        "
-      >
+     <nav
+  className="
+    sticky top-0 z-[9999] w-full
+    bg-white/10
+    backdrop-blur-xl backdrop-saturate-150
+    border-b border-white/20
+    shadow-lg
+    transition-all duration-300
+    isolate
+  "
+>
         <div className="relative px-8 flex justify-between items-center h-[76px]">
           {/* LEFT */}
           <div className="flex items-center gap-12">

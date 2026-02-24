@@ -88,74 +88,56 @@ export default function QualityPage() {
   return (
     <main className="relative min-h-screen bg-white overflow-hidden">
 
-     {/* ===================== BANNER ===================== */}
-<section className="relative pt-24 sm:pt-28 md:pt-32 pb-28 sm:pb-32 md:pb-40 overflow-hidden">
+    {/* ===================== BANNER ===================== */}
+<section className="relative min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden text-center">
 
   {/* Background Image */}
   <div
     className="absolute inset-0 bg-cover bg-center scale-105"
-    style={{ backgroundImage: "url('/assets/images/infra/infra3.png')" }}
+    style={{ backgroundImage: "url('/assets/images/quality.png')" }}
   />
 
   {/* Dark Gradient Overlay */}
   <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-black/25" />
 
-  {/* Extra Soft Glass Layer */}
-  <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px]" />
+  {/* ================= CONTENT (CENTERED) ================= */}
+  <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
 
-  {/* Content */}
-  <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 md:px-8 text-center">
-
-    {/* 🔮 Transparent Glass Box */}
-    <div
+    <h1
       className="
-        mx-auto
-        w-full
-        max-w-[92%] sm:max-w-xl md:max-w-3xl lg:max-w-4xl
-        rounded-2xl sm:rounded-3xl
-        bg-white/25
-        backdrop-blur-lg
-        border border-white/30
-        shadow-[0_20px_60px_rgba(0,0,0,0.35)]
-        px-6 sm:px-8 md:px-10
-        py-8 sm:py-10 md:py-12
+        text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl
+        font-extrabold
+        tracking-tight
+        text-[#c93a7c]
       "
     >
-      <h1
-        className="
-          text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
-          font-extrabold
-          tracking-tight
-          text-[#c93a7c]
-        "
-      >
-        Quality & Compliance
-      </h1>
+      Quality & Compliance
+    </h1>
 
-      <p
-        className="
-          mt-3 sm:mt-4 md:mt-5
-          text-base sm:text-lg md:text-xl lg:text-2xl
-          font-semibold
-          text-[#032a33]
-        "
-      >
-        Precision. Consistency. Trust.
-      </p>
+    <p
+      className="
+        mt-3 sm:mt-4
+        text-base sm:text-lg md:text-xl lg:text-2xl
+        font-semibold
+        text-white/90
+      "
+    >
+      Precision. Consistency. Trust.
+    </p>
 
-      <p
-        className="
-          mt-4 sm:mt-5 md:mt-6
-          max-w-3xl mx-auto
-          text-sm sm:text-base md:text-lg
-          text-white/90
-          leading-relaxed
-        "
-      >
-        At Nami Life Sciences, quality is not a checkpoint — it is a culture
-        embedded across formulation, manufacturing, and delivery.
-      </p>
-    </div>
+    <p
+      className="
+        mt-4 sm:mt-5 md:mt-6
+        max-w-3xl mx-auto
+        text-sm sm:text-base md:text-lg
+        text-white/85
+        leading-relaxed
+      "
+    >
+      At Nami Life Sciences, quality is not a checkpoint — it is a culture
+      embedded across formulation, manufacturing, and delivery.
+    </p>
+
   </div>
 
   {/* Bottom Wave */}
@@ -206,7 +188,7 @@ export default function QualityPage() {
               style={{ perspective: "1200px" }}
             >
               <img
-                src="/assets/images/quality.png"
+                src="/assets/images/quality1.png"
                 alt="Quality Assurance Laboratory"
                 width={480}
                 height={360}

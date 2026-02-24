@@ -85,7 +85,7 @@ export default function Pharmaceuticals() {
                   before:fixed 
                   before:inset-0 
                   before:z-[-1] 
-                  before:bg-[url('/assets/Pharmaceuticals.jpeg')] 
+                  before:bg-[url('/assets/Pharmaceuticals.png')] 
                   before:bg-cover 
                   before:bg-center 
                   before:bg-no-repeat
