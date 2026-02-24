@@ -17,14 +17,17 @@ export default function GalleryPage() {
   return (
     <main className="bg-white">
       {/* ================= HERO ================= */}
-<section className="relative overflow-hidden
-                    pt-24 sm:pt-28 md:pt-32
-                    pb-24 sm:pb-26 md:pb-28">
-
+<section
+  className="
+    relative overflow-hidden
+    pt-24 sm:pt-28 md:pt-32
+    pb-24 sm:pb-26 md:pb-28
+  "
+>
   {/* Background Image */}
   <div
     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: "url('/assets/images/infra/infra5.png')" }}
+    style={{ backgroundImage: "url('/assets/images/products.png')" }}
   />
 
   {/* Overlay */}
@@ -32,29 +35,28 @@ export default function GalleryPage() {
 
   {/* Content */}
   <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-    <div
-      className="bg-white/20 backdrop-blur-md rounded-xl sm:rounded-2xl
-                 border border-white/30
-                 px-5 sm:px-8
-                 py-7 sm:py-10
-                 shadow-xl"
+    <h1
+      className="
+        text-3xl sm:text-4xl md:text-6xl
+        font-extrabold
+        text-white
+        drop-shadow-lg
+      "
     >
-      <h1
-        className="text-3xl sm:text-4xl md:text-6xl
-                   font-extrabold text-[#291684]"
-      >
-        Our Infrastructure Gallery
-      </h1>
+      Our Infrastructure Gallery
+    </h1>
 
-      <p
-        className="mt-3 sm:mt-5
-                   text-white/90
-                   text-base sm:text-lg md:text-xl
-                   leading-relaxed"
-      >
-        A glimpse into our world-class facilities and manufacturing excellence.
-      </p>
-    </div>
+    <p
+      className="
+        mt-3 sm:mt-5
+        text-white/90
+        text-base sm:text-lg md:text-xl
+        leading-relaxed
+        drop-shadow-md
+      "
+    >
+      A glimpse into our world-class facilities and manufacturing excellence.
+    </p>
   </div>
 
   {/* Wave */}

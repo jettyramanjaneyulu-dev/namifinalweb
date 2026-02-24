@@ -95,7 +95,7 @@ export default function PageTransition({ triggerSecond }: PageTransitionProps) {
             exit={exit}
             transition={{
               duration: D,
-              delay: D * 3.7,
+              delay: D * 2.7,
               ease: "easeInOut",
             }}
           />
