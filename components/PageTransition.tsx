@@ -14,7 +14,9 @@ export default function PageTransition() {
   if (isMobile === null) return null;
 
   /* ================= CONFIG ================= */
-  const EASE = [0.4, 0.0, 0.2, 1]; // natural motion
+  // Typed cubic-bezier → avoids TS build error
+  const EASE: [number, number, number, number] = [0.4, 0.0, 0.2, 1];
+
   const SLIDE_DURATION = 0.7;
   const LOGO_DURATION = 0.6;
 
@@ -50,12 +52,12 @@ export default function PageTransition() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
-          duration: 0.3,          // smooth fade
+          duration: 0.35,
           delay: SLIDE_DURATION * 0.75,
           ease: EASE,
         }}
       >
-        {/* ===== LOGO : ZOOM-IN ===== */}
+        {/* ===== LOGO : ZOOM-IN ONLY ===== */}
         <motion.img
           src="/assets/footer-n-logo.png"
           alt="Logo"
@@ -78,7 +80,7 @@ export default function PageTransition() {
         exit={exit}
         transition={{
           duration: SLIDE_DURATION,
-          delay: SLIDE_DURATION + 0.4, // soft overlap
+          delay: SLIDE_DURATION + 0.4,
           ease: EASE,
         }}
       />
