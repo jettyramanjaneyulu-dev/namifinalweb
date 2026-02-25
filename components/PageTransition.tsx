@@ -3,11 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-type PageTransitionProps = {
-  triggerSecond?: boolean;
-};
-
-export default function PageTransition({ triggerSecond }: PageTransitionProps) {
+export default function PageTransition() {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -17,90 +13,75 @@ export default function PageTransition({ triggerSecond }: PageTransitionProps) {
 
   if (isMobile === null) return null;
 
-  // Direction logic (UNCHANGED)
+  /* ================= DIRECTION ================= */
   const initial = isMobile
     ? { x: "-100%", y: 0 }
     : { x: 0, y: "100%" };
 
-  const animate = isMobile
-    ? { x: "0%", y: 0 }
-    : { x: 0, y: "0%" };
+  const animate = { x: "0%", y: "0%" };
 
   const exit = isMobile
     ? { x: "100%", y: 0 }
     : { x: 0, y: "-100%" };
 
-  const D = 0.45; // base duration
+  /* ================= TIMING ================= */
+  const SLIDE_DURATION = 0.6;
+  const LOGO_DELAY = SLIDE_DURATION;
+  const SECOND_SLIDE_DELAY = SLIDE_DURATION + 0.6;
 
   return (
-    <div className="fixed inset-0 z-[9999] pointer-events-none overflow-hidden">
+    <div className="fixed inset-0 z-[9999] pointer-events-auto overflow-hidden">
+
       {/* ===== SLIDE 1 : DARK BLUE ===== */}
       <motion.div
-        className="absolute inset-0 bg-[#0A4C8B]"
+        className="absolute inset-0 bg-[#0A4C8B] z-10"
         initial={initial}
         animate={animate}
         exit={exit}
-        transition={{ duration: D, ease: "easeInOut" }}
-      />
-
-      {/* ===== SLIDE 2 : LIGHT BLUE ===== */}
-      {/* <motion.div
-        className="absolute inset-0 bg-[#00B4D8]"
-        initial={initial}
-        animate={animate}
-        exit={exit}
-        transition={{ duration: D, delay: D, ease: "easeInOut" }}
-      /> */}
-
-      {/* ===== SLIDE 3 : IMAGE ===== */}
-      <motion.div
-        className="absolute inset-0 flex items-center justify-center bg-white"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
         transition={{
-          duration: 0.35,
-          delay: D * 2,
+          duration: SLIDE_DURATION,
           ease: "easeInOut",
         }}
+      />
+
+      {/* ===== WHITE BACKGROUND (APPEARS AFTER SLIDE 1) ===== */}
+      <motion.div
+        className="absolute inset-0 flex items-center justify-center bg-white z-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          delay: SLIDE_DURATION,
+          duration: 0.01,
+        }}
       >
-        <img
+        {/* ===== LOGO ONLY : ZOOM-IN ===== */}
+        <motion.img
           src="/assets/footer-n-logo.png"
           alt="Logo"
-          className="h-74 w-auto"
+          className="h-50 w-auto"
+          initial={{ scale: 0.6, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{
+            duration: 0.6,
+            delay: LOGO_DELAY,
+            ease: "easeOut",
+          }}
         />
       </motion.div>
 
-      {/* ===== SLIDE 4 & 5 : SECOND PASS ===== */}
-     
-        <>
-          {/* Dark Blue */}
-          {/* <motion.div
-            className="absolute inset-0 bg-[#0A4C8B]"
-            initial={initial}
-            animate={animate}
-            exit={exit}
-            transition={{
-              duration: D,
-              delay: D * 2.7,
-              ease: "easeInOut",
-            }}
-          /> */}
+      {/* ===== SLIDE 2 : LIGHT BLUE ===== */}
+      <motion.div
+        className="absolute inset-0 bg-[#00B4D8] z-30"
+        initial={initial}
+        animate={animate}
+        exit={exit}
+        transition={{
+          duration: SLIDE_DURATION,
+          delay: SECOND_SLIDE_DELAY,
+          ease: "easeInOut",
+        }}
+      />
 
-          {/* Light Blue */}
-          <motion.div
-            className="absolute inset-0 bg-[#00B4D8]"
-            initial={initial}
-            animate={animate}
-            exit={exit}
-            transition={{
-              duration: D,
-              delay: D * 2.7,
-              ease: "easeInOut",
-            }}
-          />
-        </>
-     
     </div>
   );
 }

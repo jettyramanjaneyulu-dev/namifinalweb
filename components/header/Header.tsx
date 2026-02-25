@@ -87,7 +87,7 @@ useEffect(() => {
   // wait for animation to finish
   setTimeout(() => {
     router.push(href);
-  }, 600);
+  }, 350);
 
   // unmount animation after redirect
   setTimeout(() => {
