@@ -13,6 +13,11 @@ export default function PageTransition() {
 
   if (isMobile === null) return null;
 
+  /* ================= CONFIG ================= */
+  const EASE = [0.4, 0.0, 0.2, 1]; // natural motion
+  const SLIDE_DURATION = 0.7;
+  const LOGO_DURATION = 0.6;
+
   /* ================= DIRECTION ================= */
   const initial = isMobile
     ? { x: "-100%", y: 0 }
@@ -23,11 +28,6 @@ export default function PageTransition() {
   const exit = isMobile
     ? { x: "100%", y: 0 }
     : { x: 0, y: "-100%" };
-
-  /* ================= TIMING ================= */
-  const SLIDE_DURATION = 0.6;
-  const LOGO_DELAY = SLIDE_DURATION;
-  const SECOND_SLIDE_DELAY = SLIDE_DURATION + 0.6;
 
   return (
     <div className="fixed inset-0 z-[9999] pointer-events-auto overflow-hidden">
@@ -40,31 +40,32 @@ export default function PageTransition() {
         exit={exit}
         transition={{
           duration: SLIDE_DURATION,
-          ease: "easeInOut",
+          ease: EASE,
         }}
       />
 
-      {/* ===== WHITE BACKGROUND (APPEARS AFTER SLIDE 1) ===== */}
+      {/* ===== WHITE BACKGROUND ===== */}
       <motion.div
         className="absolute inset-0 flex items-center justify-center bg-white z-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
-          delay: SLIDE_DURATION,
-          duration: 0.01,
+          duration: 0.3,          // smooth fade
+          delay: SLIDE_DURATION * 0.75,
+          ease: EASE,
         }}
       >
-        {/* ===== LOGO ONLY : ZOOM-IN ===== */}
+        {/* ===== LOGO : ZOOM-IN ===== */}
         <motion.img
           src="/assets/footer-n-logo.png"
           alt="Logo"
           className="h-50 w-auto"
-          initial={{ scale: 0.6, opacity: 0 }}
+          initial={{ scale: 0.85, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{
-            duration: 0.6,
-            delay: LOGO_DELAY,
-            ease: "easeOut",
+            duration: LOGO_DURATION,
+            delay: SLIDE_DURATION * 0.9,
+            ease: EASE,
           }}
         />
       </motion.div>
@@ -77,8 +78,8 @@ export default function PageTransition() {
         exit={exit}
         transition={{
           duration: SLIDE_DURATION,
-          delay: SECOND_SLIDE_DELAY,
-          ease: "easeInOut",
+          delay: SLIDE_DURATION + 0.4, // soft overlap
+          ease: EASE,
         }}
       />
 
