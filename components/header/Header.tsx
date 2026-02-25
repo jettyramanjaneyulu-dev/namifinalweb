@@ -314,7 +314,7 @@ useEffect(() => {
         )}
       </AnimatePresence>
 
-      {transitioning && <PageTransition triggerSecond={undefined} />}
+      {transitioning && <PageTransition />}
 
     </>
   );
