@@ -86,8 +86,10 @@ export default function QualityPage() {
   const [activeTab, setActiveTab] = useState(QUALITY_TABS[0]);
 
   return (
-    <main className="relative min-h-screen bg-white overflow-hidden">
+    <main className="relative min-h-screen bg-white overflow-hidden z-10">
 
+      {/* ===================== FLOATING CAPSULES ===================== */}
+      <FloatingCapsules />
     {/* ===================== BANNER ===================== */}
 <section className="relative min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden text-center">
 
@@ -155,11 +157,6 @@ export default function QualityPage() {
   </div>
 
 </section>
-
-
-
-      {/* ===================== FLOATING CAPSULES ===================== */}
-      <FloatingCapsules />
 
       {/* ===================== CONTENT ===================== */}
      
@@ -360,18 +357,18 @@ function FloatingCapsules() {
   if (!capsules.length) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <div className="pointer-events-none fixed inset-0 z-10 overflow-hidden">
       {capsules.map((cap, i) => (
         <motion.div
           key={i}
           initial={{
             x: `${cap.x}vw`,
-            y: "1100",
+            y: "100vh",
             opacity: 0,
             rotate: 0,
           }}
           animate={{
-            y: "-200",
+            y: "-20vh",
             opacity: [0, 0.35, 0.35, 0],
             rotate: 360,
           }}

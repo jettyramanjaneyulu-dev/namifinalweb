@@ -11,13 +11,13 @@ import {
   Layers,
 } from "lucide-react";
 import InfrastructureGalleryPage from "@/components/InfrastructureGallery";
-import FloatingCapsules from "../about/FloatingCapsules";
 import { isSafari } from "@/lib/isSafari";
 
 export default function InfrastructurePage() {
   return (
-    <main className="relative bg-[#f6f7fb] overflow-hidden">
-
+    <main className="relative bg-[#f6f7fb] overflow-hidden z-0">
+{/* ===================== FLOATING CAPSULES ===================== */}
+      <FloatingCapsules />
 {/* ================= HERO / BANNER ================= */}
 <section
   className="
@@ -87,9 +87,6 @@ export default function InfrastructurePage() {
 </section>
 
 
-
-
-
       {/* ================= INTRO (PREMIUM DESIGN) ================= */}
 <section className="relative py-28 px-6 overflow-hidden">
 
@@ -156,8 +153,7 @@ export default function InfrastructurePage() {
   </motion.div>
 </section>
 
-{/* ===================== FLOATING CAPSULES ===================== */}
-      <FloatingCapsules />
+
       {/* ================= INFRASTRUCTURE HIGHLIGHTS ================= */}
 <section className="relative py-28 px-6 overflow-hidden ]">
 
@@ -317,7 +313,75 @@ const highlights = [
 
 /* ===================== FLOATING PELLETS – FULL PAGE ===================== */
 
-type Pellet = {
+// type Pellet = {
+//   x: number;
+//   size: number;
+//   duration: number;
+//   delay: number;
+//   color: string;
+// };
+
+// const colors = ["#ec4899", "#22d3ee", "#a855f7"];
+
+
+// function FloatingPellets() {
+//   const [pellets, setPellets] = useState<Pellet[]>([]);
+
+//   useEffect(() => {
+//     setPellets(
+//       Array.from({ length: 25 }).map((_, i) => ({
+//         x: Math.random() * 100,
+//         size: 8,
+//         duration: 20 + Math.random() * 10,
+//         delay: Math.random() * 10,
+//         color: colors[i % colors.length],
+//       }))
+//     );
+//   }, []);
+
+//   return (
+//     <div
+//       style={{
+//         position: "fixed",
+//         inset: 0,
+//         pointerEvents: "none",
+//         zIndex: 50, // ABOVE EVERYTHING
+//       }}
+//     >
+//       {pellets.map((p, i) => (
+//         <motion.div
+//           key={i}
+//           initial={{ y: "110vh", x: `${p.x}vw`, opacity: 0 }}
+//           animate={{ y: "-20vh", opacity: [0, 1, 1, 0] }}
+//           transition={{
+//             duration: p.duration,
+//             delay: p.delay,
+//             repeat: Infinity,
+//             ease: "linear",
+//           }}
+//           style={{
+//             width: p.size,
+//             height: p.size,
+//             backgroundColor: p.color,
+//             borderRadius: "50%",
+//             position: "absolute",
+//           }}
+//         />
+//       ))}
+//     </div>
+//   );
+// }
+
+
+      /* ===================== FLOATING CAPSULES – FULL PAGE ===================== */
+
+const capsuleColors = [
+  "from-pink-400 to-rose-500",
+  "from-cyan-400 to-blue-500",
+  "from-purple-400 to-indigo-500",
+];
+
+type Capsule = {
   x: number;
   size: number;
   duration: number;
@@ -325,50 +389,49 @@ type Pellet = {
   color: string;
 };
 
-const colors = ["#ec4899", "#22d3ee", "#a855f7"];
-
-
-function FloatingPellets() {
-  const [pellets, setPellets] = useState<Pellet[]>([]);
+function FloatingCapsules() {
+  const [capsules, setCapsules] = useState<Capsule[]>([]);
 
   useEffect(() => {
-    setPellets(
-      Array.from({ length: 25 }).map((_, i) => ({
-        x: Math.random() * 100,
-        size: 8,
-        duration: 20 + Math.random() * 10,
-        delay: Math.random() * 10,
-        color: colors[i % colors.length],
-      }))
-    );
+    const generated = Array.from({ length: 18 }).map((_, i) => ({
+      x: Math.random() * 100,
+      size: 24 + Math.random() * 26,
+      duration: 22 + Math.random() * 18,
+      delay: Math.random() * 10,
+      color: capsuleColors[i % capsuleColors.length],
+    }));
+
+    setCapsules(generated);
   }, []);
 
+  if (!capsules.length) return null;
+
   return (
-    <div
-      style={{
-        position: "fixed",
-        inset: 0,
-        pointerEvents: "none",
-        zIndex: 50, // ABOVE EVERYTHING
-      }}
-    >
-      {pellets.map((p, i) => (
+    <div className="pointer-events-none fixed inset-0 z-10 overflow-hidden">
+      {capsules.map((cap, i) => (
         <motion.div
           key={i}
-          initial={{ y: "110vh", x: `${p.x}vw`, opacity: 0 }}
-          animate={{ y: "-20vh", opacity: [0, 1, 1, 0] }}
+          initial={{
+            x: `${cap.x}vw`,
+            y: "100vh",
+            opacity: 0,
+            rotate: 0,
+          }}
+          animate={{
+            y: "-20vh",
+            opacity: [0, 0.35, 0.35, 0],
+            rotate: 360,
+          }}
           transition={{
-            duration: p.duration,
-            delay: p.delay,
+            duration: cap.duration,
+            delay: cap.delay,
             repeat: Infinity,
             ease: "linear",
           }}
+          className={`absolute rounded-full bg-gradient-to-br ${cap.color} blur-[0.4px]`}
           style={{
-            width: p.size,
-            height: p.size,
-            backgroundColor: p.color,
-            borderRadius: "50%",
-            position: "absolute",
+            width: cap.size,
+            height: cap.size,
           }}
         />
       ))}

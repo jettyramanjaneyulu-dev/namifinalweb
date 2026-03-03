@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function GlobalReach() {
   return (
@@ -94,12 +95,17 @@ export default function GlobalReach() {
                     className="object-cover w-full h-full"
                   />
                 </div>
-                <span className="font-bold text-lg flex items-center gap-2 group-hover:text-[#C93A7C] transition-colors text-[#014d8b]">
-                  International Standards
-                  <div className="w-10 h-10 rounded-full bg-[#C93A7C] flex items-center justify-center">
-                    <ArrowRight size={24} className="text-[#f0f0f0] -rotate-45" />
-                  </div>
-                </span>
+                <Link
+  href="/infrastructure"
+  className="group inline-block"
+>
+  <span className="font-bold text-lg flex items-center gap-2 group-hover:text-[#C93A7C] transition-colors text-[#014d8b]">
+    International Standards
+    <div className="w-10 h-10 rounded-full bg-[#C93A7C] flex items-center justify-center">
+      <ArrowRight size={24} className="text-[#f0f0f0] -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+    </div>
+  </span>
+</Link>
               </div>
 
               {/* Item 2 */}
@@ -111,12 +117,16 @@ export default function GlobalReach() {
                     className="object-cover w-full h-full"
                   />
                 </div>
+                <Link
+  href="/infrastructure"
+  className="group inline-block"
+>
                 <span className="font-bold text-lg flex items-center gap-2 group-hover:text-[#C93A7C] transition-colors text-[#014d8b]">
                   Ethical Principles
                   <div className="w-10 h-10 rounded-full bg-[#C93A7C] flex items-center justify-center">
                     <ArrowRight size={24} className="text-[#f0f0f0] -rotate-45" />
                   </div>
-                </span>
+                </span></Link>
               </div>
             </div>
           </div>

@@ -14,8 +14,9 @@ import { isSafari } from "@/lib/isSafari";
 
 export default function CareerPage() {
   return (
-    <main className="relative bg-[#f6f7fb] overflow-hidden">
-
+    <main className="relative bg-[#f6f7fb] overflow-hidden z-0">
+{/* ===================== FLOATING CAPSULES ===================== */}
+      <FloatingCapsules />
  {/* ================= HERO / BANNER ================= */}
 <section
   className="
@@ -98,7 +99,7 @@ export default function CareerPage() {
 
 
 {/* ================= INTRO / PEOPLE & CULTURE ================= */}
-<section className="relative py-28 px-6 overflow-hidden">
+<section className="relative  py-28 px-6 overflow-hidden">
 
   {/* Soft Background Gradient */}
   {/* <div className="absolute inset-0 bg-gradient-to-br from-pink-50 via-white to-indigo-50" /> */}
@@ -170,10 +171,9 @@ export default function CareerPage() {
   </div>
 </section>
 
- {/* ===================== FLOATING CAPSULES ===================== */}
-      <FloatingCapsules />
+ 
       {/* ================= WHY JOIN — PEOPLE & PURPOSE ================= */}
-<section className="relative py-28 px-6 overflow-hidden">
+<section className="relative   py-28 px-6 overflow-hidden">
 
   {/* Background */}
   <div className="absolute inset-0 " />
@@ -268,7 +268,7 @@ export default function CareerPage() {
 </section>
 
      {/* ================= CLOSING / FINAL STATEMENT ================= */}
-<section className="relative pb-32 px-6 max-w-6xl mx-auto overflow-hidden">
+<section className="relative  pb-32 px-6 max-w-6xl mx-auto overflow-hidden">
 
   {/* Decorative Blurs */}
   {/* <div className="absolute -top-20 -left-20 w-72 h-72 bg-pink-400/20 rounded-full blur-3xl" />
@@ -315,7 +315,7 @@ export default function CareerPage() {
   </motion.div>
 </section>
 {/* ================= APPLY NOW / JOB FORM ================= */}
-<section className="relative py-32 px-6 overflow-hidden">
+<section className="relative  py-32 px-6 overflow-hidden">
 
   {/* Background */}
   <div className="absolute inset-0 " />
@@ -524,18 +524,18 @@ function FloatingCapsules() {
   if (!capsules.length) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <div className="pointer-events-none fixed inset-0 z-10 overflow-hidden">
       {capsules.map((cap, i) => (
         <motion.div
           key={i}
           initial={{
             x: `${cap.x}vw`,
-            y: "1100",
+            y: "100vh",
             opacity: 0,
             rotate: 0,
           }}
           animate={{
-            y: "-200",
+            y: "-20vh",
             opacity: [0, 0.35, 0.35, 0],
             rotate: 360,
           }}

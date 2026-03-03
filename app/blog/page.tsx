@@ -41,7 +41,7 @@ export default function BlogPage() {
   return (
     <div
       className="
-        relative min-h-screen px-4 py-10
+        relative min-h-screen px-4 py-10 z-0
         bg-gradient-to-br
         from-[#0f2027] via-[#203a43] to-[#2c5364]
         overflow-hidden
@@ -200,18 +200,18 @@ function FloatingCapsules() {
   if (!capsules.length) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <div className="pointer-events-none fixed inset-0 z-10 overflow-hidden">
       {capsules.map((cap, i) => (
         <motion.div
           key={i}
           initial={{
             x: `${cap.x}vw`,
-            y: "1100",
+            y: "100vh",
             opacity: 0,
             rotate: 0,
           }}
           animate={{
-            y: "-200",
+            y: "-20vh",
             opacity: [0, 0.35, 0.35, 0],
             rotate: 360,
           }}

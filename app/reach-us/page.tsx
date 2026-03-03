@@ -17,8 +17,10 @@ import CompanyConnectSection from "@/components/CompanyConnectSection";
 
 export default function ReachUsPage() {
   return (
-    <main className="relative bg-[#f6f7fb] overflow-hidden">
+    <main className="relative bg-[#f6f7fb] overflow-hidden z-0">
 
+ {/* ===================== FLOATING CAPSULES ===================== */}
+      <FloatingCapsules />
 {/* ================= HERO ================= */}
 <section
   className="
@@ -92,8 +94,6 @@ export default function ReachUsPage() {
      {/* ================= COMPANY / CONNECT ================= */}
 <CompanyConnectSection/>
 
- {/* ===================== FLOATING CAPSULES ===================== */}
-      <FloatingCapsules />
 
    {/* ================= ADDRESSES – PREMIUM ================= */}
 <section className="relative py-24 px-6 overflow-hidden">
@@ -417,18 +417,18 @@ function FloatingCapsules() {
   if (!capsules.length) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <div className="pointer-events-none fixed inset-0 z-10 overflow-hidden">
       {capsules.map((cap, i) => (
         <motion.div
           key={i}
           initial={{
             x: `${cap.x}vw`,
-            y: "1100",
+            y: "100vh",
             opacity: 0,
             rotate: 0,
           }}
           animate={{
-            y: "-200",
+            y: "-20vh",
             opacity: [0, 0.35, 0.35, 0],
             rotate: 360,
           }}

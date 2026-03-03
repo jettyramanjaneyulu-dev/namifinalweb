@@ -80,8 +80,9 @@ const capabilities = [
 ];
 export default function ProductsPage() {
   return (
-    <main className="bg-white overflow-hidden">
-
+    <main className="bg-white overflow-hidden z-0">
+{/* ===================== FLOATING CAPSULES ===================== */}
+      <FloatingCapsules />
      {/* ================= HERO SECTION ================= */}
 <section className="relative w-full min-h-[65vh] sm:min-h-[70vh] md:min-h-[75vh] lg:min-h-[80vh] flex items-center justify-center overflow-hidden">
 
@@ -197,8 +198,7 @@ export default function ProductsPage() {
     </div>
   </div>
 </section>
- {/* ===================== FLOATING CAPSULES ===================== */}
-      <FloatingCapsules />
+ 
      {/* ================= THERAPEUTIC COVERAGE (FIXED) ================= */}
 <section className="max-w-7xl mx-auto px-6 py-20">
   <motion.h2
@@ -326,18 +326,18 @@ function FloatingCapsules() {
   if (!capsules.length) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <div className="pointer-events-none fixed inset-0 z-10 overflow-hidden">
       {capsules.map((cap, i) => (
         <motion.div
           key={i}
           initial={{
             x: `${cap.x}vw`,
-            y: "1100",
+            y: "100vh",
             opacity: 0,
             rotate: 0,
           }}
           animate={{
-            y: "-200",
+            y: "-20vh",
             opacity: [0, 0.35, 0.35, 0],
             rotate: 360,
           }}

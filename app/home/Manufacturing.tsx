@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 /* ================= MANUFACTURING SECTION ================= */
 
@@ -51,6 +52,10 @@ export default function ManufacturingSection() {
                     className="w-full h-full object-cover"
                   />
                 </div>
+                <Link
+  href="/infrastructure"
+  className="group inline-block"
+>
                 <span className="font-bold text-lg flex items-center gap-2 text-[#014d8b] group-hover:text-[#C93A7C] transition-colors">
                   Safety Protocols
                   <div className="w-10 h-10 rounded-full bg-[#C93A7C] flex items-center justify-center">
@@ -59,7 +64,7 @@ export default function ManufacturingSection() {
                       size={24}
                     />
                   </div>
-                </span>
+                </span></Link>
               </div>
 
               {/* ITEM 2 */}
@@ -71,6 +76,10 @@ export default function ManufacturingSection() {
                     className="w-full h-full object-cover"
                   />
                 </div>
+                <Link
+  href="/infrastructure"
+  className="group inline-block"
+>
                 <span className="font-bold text-lg flex items-center gap-2 text-[#014d8b] group-hover:text-[#C93A7C] transition-colors">
                   Quality Control
                   <div className="w-10 h-10 rounded-full bg-[#C93A7C] flex items-center justify-center">
@@ -79,7 +88,7 @@ export default function ManufacturingSection() {
                       size={24}
                     />
                   </div>
-                </span>
+                </span></Link>
               </div>
             </div>
           </div>
