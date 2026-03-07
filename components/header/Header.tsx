@@ -44,7 +44,17 @@ const AnimatedMenuItem = ({
     <button
       onMouseEnter={() => href && router.prefetch(href)}
       onClick={onClick}
-      className="relative overflow-hidden px-2 py-1 uppercase text-sm font-bold tracking-wider cursor-pointer text-[#014d8b]"
+      className="
+relative overflow-hidden
+px-[clamp(6px,0.8vw,10px)]
+py-1
+uppercase
+text-[clamp(11px,0.85vw,14px)]
+font-bold
+tracking-wider
+cursor-pointer
+text-[#014d8b]
+"
     >
       <motion.span
         initial={mobile ? { y: "-100%" } : { x: "-100%" }}
@@ -118,17 +128,18 @@ useEffect(() => {
             <button
               onClick={() => navigateWithEffect("/")}
               className="relative w-36 h-26"
-            >
+            ><Link href="/">
               <img
                 src="/assets/footer-n-logo.png"
                 alt="Logo"
                 
                 className="h-full  object-contain"
-              />
+              /></Link>
             </button>
 
             {/* DESKTOP MENU */}
-            <div className="hidden lg:flex items-center gap-8">
+            {/* <div className="hidden lg:flex items-center gap-8"> */}
+            <div className="hidden xl:flex items-center gap-[clamp(12px,1.5vw,32px)]">
              <AnimatedMenuItem onClick={() => navigateWithEffect("/about")}> About Us </AnimatedMenuItem>
 
               <div className="relative group">
@@ -190,7 +201,7 @@ useEffect(() => {
           {/* RIGHT */}
           <div className="flex items-center gap-4">
             <Link
-              href="#contact"
+              href="/reach-us"
               className="hidden lg:inline-flex items-center gap-2 px-7 py-3 rounded-full
                 bg-gradient-to-r from-[#18324d] via-[#0077b6] to-[#00b4d8]
                 text-white font-semibold text-sm shadow-lg
@@ -200,7 +211,7 @@ useEffect(() => {
             </Link>
 
             <button
-              className="lg:hidden text-[#014d8b]"
+              className="xl:hidden text-[#014d8b]"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -218,7 +229,7 @@ useEffect(() => {
       exit={{ x: "-100vw" }}
       transition={{ duration: 0.45, ease: "easeInOut" }}
       className="
-        fixed top-[76px] w-full z-50 lg:hidden
+        fixed top-[76px] w-full z-50 xl:hidden
         bg-white/10
         backdrop-blur-2xl backdrop-saturate-150
         border-t border-white/20
@@ -300,7 +311,7 @@ useEffect(() => {
               </AnimatedMenuItem>
 
               <Link
-                href="#contact"
+                href="/reach-us"
                 onClick={() => setMobileMenuOpen(false)}
                 className="mt-6 inline-flex items-center gap-2
                   px-8 py-4 rounded-full

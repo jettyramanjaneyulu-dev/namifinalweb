@@ -384,67 +384,70 @@ export default function ReachUsPage() {
 
 
       /* ===================== FLOATING CAPSULES – FULL PAGE ===================== */
-
-const capsuleColors = [
-  "from-pink-400 to-rose-500",
-  "from-cyan-400 to-blue-500",
-  "from-purple-400 to-indigo-500",
-];
-
 type Capsule = {
   x: number;
   size: number;
   duration: number;
   delay: number;
-  color: string;
+  colorIndex: number;   // ← changed from "color: string" to "colorIndex: number"
 };
+
+const capsuleColors = [
+  { from: "#f472b6", to: "#f43f5e" },
+  { from: "#22d3ee", to: "#3b82f6" },
+  { from: "#a78bfa", to: "#6366f1" },
+];
 
 function FloatingCapsules() {
   const [capsules, setCapsules] = useState<Capsule[]>([]);
 
   useEffect(() => {
-    const generated = Array.from({ length: 18 }).map((_, i) => ({
-      x: Math.random() * 100,
-      size: 24 + Math.random() * 26,
-      duration: 22 + Math.random() * 18,
-      delay: Math.random() * 10,
-      color: capsuleColors[i % capsuleColors.length],
+    const generated: Capsule[] = Array.from({ length: 18 }).map((_, i) => ({
+      x: 5 + (i * 5.2) % 90,
+      size: 24 + (i * 7) % 26,
+      duration: 22 + (i * 3) % 18,
+      delay: (i * 1.1) % 10,
+      colorIndex: i % 3,   // ✅ will always be 0, 1, or 2
     }));
-
     setCapsules(generated);
   }, []);
 
   if (!capsules.length) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-10 overflow-hidden">
-      {capsules.map((cap, i) => (
-        <motion.div
-          key={i}
-          initial={{
-            x: `${cap.x}vw`,
-            y: "100vh",
-            opacity: 0,
-            rotate: 0,
-          }}
-          animate={{
-            y: "-20vh",
-            opacity: [0, 0.35, 0.35, 0],
-            rotate: 360,
-          }}
-          transition={{
-            duration: cap.duration,
-            delay: cap.delay,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className={`absolute rounded-full bg-gradient-to-br ${cap.color} blur-[0.4px]`}
-          style={{
-            width: cap.size,
-            height: cap.size,
-          }}
-        />
-      ))}
-    </div>
+    <>
+      <style>{`
+        @keyframes floatUp {
+          0%   { transform: translateY(110vh) rotate(0deg);   opacity: 0; }
+          10%  { opacity: 0.5; }
+          90%  { opacity: 0.5; }
+          100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+        }
+      `}</style>
+
+      {capsules.map((cap, i) => {
+        // ✅ Safe fallback so color is NEVER undefined
+        const color = capsuleColors[cap.colorIndex] ?? capsuleColors[0];
+
+        return (
+          <div
+            key={i}
+            style={{
+              position: "fixed",
+              left: `${cap.x}%`,
+              bottom: 0,
+              width: `${cap.size}px`,
+              height: `${cap.size}px`,
+              borderRadius: "50%",
+              background: `linear-gradient(135deg, ${color.from}, ${color.to})`,
+              animation: `floatUp ${cap.duration}s ${cap.delay}s infinite linear`,
+              pointerEvents: "none",
+              zIndex: 9999,
+              willChange: "transform, opacity",
+            }}
+          />
+        );
+      })}
+    </>
   );
 }

@@ -11,7 +11,7 @@ export default function Footer() {
       {/* ================= MERCK STYLE BACKGROUND SHAPES ================= */}
 
       {/* Left Pink Shape */}
-      <div className="absolute -left-32 bottom-0 w-[520px] h-[520px] bg-[#EC3F8C]
+      <div className="absolute -left-32 bottom-0 w-[520px] h-[520px] bg-[#e31881]
                       rounded-[60%_40%_70%_30%] opacity-100" />
 
       {/* Left Teal Shape */}
@@ -20,12 +20,12 @@ export default function Footer() {
 
 
       {/* Right Purple Shape */}
-      <div className="absolute -right-40 bottom-0 w-[600px] h-[600px] bg-[#4B2E83]
-                      rounded-[40%_60%_30%_70%]" />
+      <div className="absolute -right-32 -bottom-10 w-[520px] h-[520px] bg-[#e31881]
+                      rounded-[60%_40%_70%_30%]" />
 
       {/* Right Pink Overlay */}
-      <div className="absolute right-10 bottom-32 w-[360px] h-[360px] bg-[#EC3F8C]
-                      rounded-[50%_50%_40%_60%]" />
+      <div className="absolute -right-10 top-20 w-[420px] h-[420px] bg-[#014d8b]
+                      rounded-[70%_30%_50%_50%]" />
 
       {/* ================= CONTENT ================= */}
       <div className="relative z-10 max-w-7xl mx-auto px-6">
