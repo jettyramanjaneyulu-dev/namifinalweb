@@ -45,7 +45,7 @@ export default function GlobalReach() {
                   before:fixed 
                   before:inset-0 
                   before:z-[-1] 
-                  before:bg-[url('public/assets/Global.png')] 
+                  before:bg-[url('/assets/Global.png')] 
                   before:bg-cover 
                   before:bg-center 
                   before:bg-no-repeat

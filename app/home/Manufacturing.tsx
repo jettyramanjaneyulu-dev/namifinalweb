@@ -127,8 +127,8 @@ export default function ManufacturingSection() {
                   before:fixed 
                   before:inset-0 
                   before:z-[-1] 
-                  before:bg-[url('public/assets/Manufacturing.png')] 
-                  lg:before:bg-[url('public/assets/Manufacturing--1.png')] 
+                  before:bg-[url('/assets/Manufacturing.png')] 
+                  lg:before:bg-[url('/assets/Manufacturing--1.png')] 
                   before:bg-cover 
                   before:bg-center 
                   before:bg-no-repeat
