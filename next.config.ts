@@ -3,6 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   devIndicators: false,
 
+  // important for Hostinger Node deployment
+  output: "standalone",
+
   images: {
     unoptimized: true,
     remotePatterns: [
