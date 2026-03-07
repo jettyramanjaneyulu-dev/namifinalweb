@@ -329,15 +329,14 @@ function FloatingCapsules() {
     <>
       <style>{`
         @keyframes floatUp {
-          0%   { transform: translateY(110vh) rotate(0deg);   opacity: 0; }
+          0%   { transform: translateY(0) rotate(0deg);      opacity: 0; }
           10%  { opacity: 0.5; }
           90%  { opacity: 0.5; }
-          100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+          100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
         }
       `}</style>
 
       {capsules.map((cap, i) => {
-        // ✅ Safe fallback so color is NEVER undefined
         const color = capsuleColors[cap.colorIndex] ?? capsuleColors[0];
 
         return (
@@ -346,15 +345,17 @@ function FloatingCapsules() {
             style={{
               position: "fixed",
               left: `${cap.x}%`,
-              bottom: 0,
+              bottom: "-60px",          // ✅ hide below screen initially
               width: `${cap.size}px`,
               height: `${cap.size}px`,
               borderRadius: "50%",
               background: `linear-gradient(135deg, ${color.from}, ${color.to})`,
               animation: `floatUp ${cap.duration}s ${cap.delay}s infinite linear`,
+              animationFillMode: "both", // ✅ keeps opacity:0 during delay
               pointerEvents: "none",
               zIndex: 9999,
               willChange: "transform, opacity",
+              opacity: 0,               // ✅ hidden before animation starts
             }}
           />
         );

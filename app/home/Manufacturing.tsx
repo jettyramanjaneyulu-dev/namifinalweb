@@ -22,13 +22,13 @@ export default function ManufacturingSection() {
             {/* TITLE */}
             <div className="flex items-center gap-4 mb-6">
               <h2
-                className="text-2xl font-black text-[#C93A7C] uppercase tracking-wider"
-                style={{ fontFamily: "var(--font-orbitron)" }}
+                className="text-3xl md:text-4xl font-black text-[#C93A7C] uppercase tracking-wider"
+                
               >
                 Manufacturing
               </h2>
             </div>
-
+{/* style={{ fontFamily: "var(--font-orbitron)" }} */}
             {/* DESCRIPTION */}
             <p className="text-lg mb-10 leading-relaxed font-medium max-w-xl text-[#014d8b]">
               We take pride in our world-class manufacturing facilities. Our
@@ -128,6 +128,7 @@ export default function ManufacturingSection() {
                   before:inset-0 
                   before:z-[-1] 
                   before:bg-[url('/assets/Manufacturing.png')] 
+                  lg:before:bg-[url('/assets/Manufacturing--1.png')] 
                   before:bg-cover 
                   before:bg-center 
                   before:bg-no-repeat

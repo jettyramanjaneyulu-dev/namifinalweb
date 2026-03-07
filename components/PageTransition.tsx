@@ -17,8 +17,10 @@ export default function PageTransition() {
   // Typed cubic-bezier → avoids TS build error
   const EASE: [number, number, number, number] = [0.4, 0.0, 0.2, 1];
 
-  const SLIDE_DURATION = 0.7;
-  const LOGO_DURATION = 0.6;
+  // const SLIDE_DURATION = 0.7;
+  // const LOGO_DURATION = 0.6;
+  const SLIDE_DURATION = 0.35;
+const LOGO_DURATION = 0.4;
 
   /* ================= DIRECTION ================= */
   const initial = isMobile
@@ -74,13 +76,13 @@ export default function PageTransition() {
 
       {/* ===== SLIDE 2 : LIGHT BLUE ===== */}
       <motion.div
-        className="absolute inset-0 bg-[#00B4D8] z-30"
+        className="absolute inset-0 bg-[#00B4D8] z-20"
         initial={initial}
         animate={animate}
         exit={exit}
         transition={{
           duration: SLIDE_DURATION,
-          delay: SLIDE_DURATION + 0.4,
+          delay: SLIDE_DURATION + 0.12,
           ease: EASE,
         }}
       />

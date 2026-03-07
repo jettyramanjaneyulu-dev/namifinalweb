@@ -84,7 +84,7 @@ export default function WhatWeDoSection() {
             <div className="flex items-center gap-4 mb-6">
               <h2
                 className="text-3xl md:text-4xl font-black uppercase tracking-wider"
-                style={{ fontFamily: "Orbitron", color: "#014d8b" }}
+                style={{ color: "#014d8b" }}
               >
                 What We Do
               </h2>

@@ -68,8 +68,8 @@ export default function GlobalReach() {
           <div className="order-2 lg:order-2">
             <div className="flex items-center gap-4 mb-6">
               <h2
-                className="text-4xl font-black text-[#014d8b] uppercase tracking-wider"
-                style={{ fontFamily: "var(--font-orbitron)" }}
+                className="text-3xl md:text-4xl font-black text-[#014d8b] uppercase tracking-wider"
+                
               >
                 Global Reach
               </h2>

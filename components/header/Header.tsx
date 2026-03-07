@@ -126,9 +126,18 @@ useEffect(() => {
           {/* LEFT */}
           <div className="flex items-center gap-12">
             <button
-              onClick={() => navigateWithEffect("/")}
-              className="relative w-36 h-26"
-            ><Link href="/">
+  onClick={() => {
+    if (window.location.pathname === "/") {
+      // already on home — just scroll to top smoothly
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      // on another page — navigate with transition
+      navigateWithEffect("/");
+    }
+  }}
+  className="relative w-36 h-26"
+>
+              <Link href="/">
               <img
                 src="/assets/footer-n-logo.png"
                 alt="Logo"
