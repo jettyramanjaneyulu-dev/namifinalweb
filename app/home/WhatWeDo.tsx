@@ -35,7 +35,7 @@ export default function WhatWeDoSection() {
           min-h-full
         "
         style={{
-          backgroundImage: "url('/assets/whatwedo-bg.png')",
+          backgroundImage: "url('public/assets/whatwedo-bg.png')",
         }}
       />
 
@@ -64,7 +64,7 @@ export default function WhatWeDoSection() {
             className="relative w-full h-full flex items-center justify-center"
           >
             <motion.img
-              src="/assets/Whatwedo.png"
+              src="public/assets/Whatwedo.png"
               alt="What We Do"
               className="w-[108%] max-w-none object-contain will-change-transform"
               style={{

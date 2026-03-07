@@ -7,14 +7,14 @@ import { useRouter } from "next/navigation";
 import { isSafari } from "@/lib/isSafari";
 
 const infraImages = [
-  "/assets/images/infra/infra.png",
-  "/assets/images/infra/infra2.png",
-  "/assets/images/infra/infra3.png",
-  "/assets/images/infra/infra4.png",
-  "/assets/images/infra/infra5.png",
-  "/assets/images/infra/infra6.png",
-  "/assets/images/infra/infra7.png",
-  "/assets/images/infra/infra8.png",
+  "public/assets/images/infra/infra.png",
+  "public/assets/images/infra/infra2.png",
+  "public/assets/images/infra/infra3.png",
+  "public/assets/images/infra/infra4.png",
+  "public/assets/images/infra/infra5.png",
+  "public/assets/images/infra/infra6.png",
+  "public/assets/images/infra/infra7.png",
+  "public/assets/images/infra/infra8.png",
 ];
 
 export default function InfrastructureGalleryPage() {

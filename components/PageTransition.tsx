@@ -61,7 +61,7 @@ const LOGO_DURATION = 0.4;
       >
         {/* ===== LOGO : ZOOM-IN ONLY ===== */}
         <motion.img
-          src="/assets/footer-n-logo.png"
+          src="public/assets/footer-n-logo.png"
           alt="Logo"
           className="h-50 w-auto"
           initial={{ scale: 0.85, opacity: 0 }}

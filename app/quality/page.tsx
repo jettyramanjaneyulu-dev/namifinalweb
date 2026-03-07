@@ -96,7 +96,7 @@ export default function QualityPage() {
   {/* Background Image */}
   <div
     className="absolute inset-0 bg-cover bg-center scale-105"
-    style={{ backgroundImage: "url('/assets/images/quality.png')" }}
+    style={{ backgroundImage: "url('public/assets/images/quality.png')" }}
   />
 
   {/* Dark Gradient Overlay */}
@@ -185,7 +185,7 @@ export default function QualityPage() {
               style={{ perspective: "1200px" }}
             >
               <img
-                src="/assets/images/quality1.png"
+                src="public/assets/images/quality1.png"
                 alt="Quality Assurance Laboratory"
                 width={480}
                 height={360}

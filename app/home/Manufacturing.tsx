@@ -47,7 +47,7 @@ export default function ManufacturingSection() {
               <div className="flex items-center gap-6 group cursor-pointer">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#014d8b]/20">
                   <img
-                    src="/assets/safety_protocols.png"
+                    src="public/assets/safety_protocols.png"
                     alt="Safety Protocols"
                     className="w-full h-full object-cover"
                   />
@@ -71,7 +71,7 @@ export default function ManufacturingSection() {
               <div className="flex items-center gap-6 group cursor-pointer">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#014d8b]/20">
                   <img
-                    src="/assets/quality_control.png"
+                    src="public/assets/quality_control.png"
                     alt="Quality Control"
                     className="w-full h-full object-cover"
                   />
@@ -127,8 +127,8 @@ export default function ManufacturingSection() {
                   before:fixed 
                   before:inset-0 
                   before:z-[-1] 
-                  before:bg-[url('/assets/Manufacturing.png')] 
-                  lg:before:bg-[url('/assets/Manufacturing--1.png')] 
+                  before:bg-[url('public/assets/Manufacturing.png')] 
+                  lg:before:bg-[url('public/assets/Manufacturing--1.png')] 
                   before:bg-cover 
                   before:bg-center 
                   before:bg-no-repeat

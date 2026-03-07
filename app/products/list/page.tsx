@@ -622,7 +622,7 @@ const isBlended = activeGroup === "COMBO";
   <div
     className="absolute inset-0 bg-cover bg-center scale-105"
     style={{
-      backgroundImage: "url('/assets/images/product_list.png')",
+      backgroundImage: "url('public/assets/images/product_list.png')",
     }}
   />
 
@@ -696,7 +696,7 @@ const isBlended = activeGroup === "COMBO";
 
         {/* PDF */}
         <a
-          href="/assets/pdf/nami-products.pdf"
+          href="public/assets/pdf/nami-products.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 bg-black text-white px-5 sm:px-6 py-3 rounded-full text-sm font-semibold hover:bg-black/90 w-full xl:w-auto"

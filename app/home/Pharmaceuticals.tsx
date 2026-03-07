@@ -29,8 +29,8 @@ export default function Pharmaceuticals() {
 
             <div className="space-y-6 text-[#014d8b]">
               {[
-                ["/assets/Pharmaceuticals-old.jpeg", "Pellet Formulations"],
-                ["/assets/Pharmaceuticals1.png", "MUPS Technology"],
+                ["public/assets/Pharmaceuticals-old.jpeg", "Pellet Formulations"],
+                ["public/assets/Pharmaceuticals1.png", "MUPS Technology"],
               ].map(([img, title]) => (
                 <Link
                   key={title}
@@ -97,7 +97,7 @@ export default function Pharmaceuticals() {
                   before:fixed 
                   before:inset-0 
                   before:z-[-1] 
-                  before:bg-[url('/assets/Pharmaceuticals.png')] 
+                  before:bg-[url('public/assets/Pharmaceuticals.png')] 
                   before:bg-cover 
                   before:bg-center 
                   before:bg-no-repeat

@@ -8,7 +8,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/assets/images/about-us-rm.png"
+          src="public/assets/images/about-us-rm.png"
           alt="Nami Life Sciences Laboratory"
           fill
           priority

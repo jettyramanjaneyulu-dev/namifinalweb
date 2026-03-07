@@ -32,7 +32,7 @@ export default function CareerPage() {
   <div
     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
     style={{
-      backgroundImage: "url('/assets/images/career.png')",
+      backgroundImage: "url('public/assets/images/career.png')",
     }}
   />
 

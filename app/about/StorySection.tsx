@@ -16,7 +16,7 @@ export default function StorySection() {
         <div className="relative h-[520px]">
           <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden shadow-2xl">
             <img
-              src="/assets/lab-1.jpeg"
+              src="public/assets/lab-1.jpeg"
               alt="Nami Life Sciences R&D Facility"
               
               className="w-full h-full object-cover"

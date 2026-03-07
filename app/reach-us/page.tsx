@@ -33,7 +33,7 @@ export default function ReachUsPage() {
   {/* ================= BACKGROUND IMAGE ================= */}
   <div
     className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-    style={{ backgroundImage: "url('/assets/images/reach-us.png')" }}
+    style={{ backgroundImage: "url('public/assets/images/reach-us.png')" }}
   />
 
   {/* Dark Overlay */}
