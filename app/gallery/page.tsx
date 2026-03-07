@@ -3,14 +3,14 @@
 import Image from "next/image";
 
 const galleryImages = [
-  { src: "public/assets/Pharmaceuticals.jpeg", title: "Manufacturing Unit" },
-  { src: "public/assets/images/infra/infra2.png", title: "Quality Lab" },
-  { src: "public/assets/images/infra/infra3.png", title: "Production Floor" },
-  { src: "public/assets/images/infra/infra4.png", title: "R&D Facility" },
-  { src: "public/assets/images/infra/infra5.png", title: "Packaging Area" },
-  { src: "public/assets/images/infra/infra6.png", title: "Warehouse" },
-  { src: "public/assets/quality-banner.jpeg", title: "Manufacturing Unit" },
-  { src: "public/assets/Global1.jpeg", title: "Quality Lab" },
+  { src: "/assets/Pharmaceuticals.png", title: "Manufacturing Unit" },
+  { src: "/assets/images/infra/infra2.png", title: "Quality Lab" },
+  { src: "/assets/images/infra/infra3.png", title: "Production Floor" },
+  { src: "/assets/images/infra/infra4.png", title: "R&D Facility" },
+  { src: "/assets/images/infra/infra5.png", title: "Packaging Area" },
+  { src: "/assets/images/infra/infra6.png", title: "Warehouse" },
+  { src: "/assets/quality-banner.png", title: "Manufacturing Unit" },
+  { src: "/assets/Global1.png", title: "Quality Lab" },
 ];
 
 export default function GalleryPage() {
@@ -27,7 +27,7 @@ export default function GalleryPage() {
   {/* Background Image */}
   <div
     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: "url('public/assets/images/products.png')" }}
+    style={{ backgroundImage: "url('/assets/images/products.png')" }}
   />
 
   {/* Overlay */}

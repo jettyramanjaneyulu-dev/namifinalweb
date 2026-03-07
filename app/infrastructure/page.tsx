@@ -31,7 +31,7 @@ export default function InfrastructurePage() {
   <div
     className="absolute inset-0 bg-cover bg-center scale-105"
     style={{
-      backgroundImage: "url('public/assets/images/infra.png')",
+      backgroundImage: "url('/assets/images/infra.png')",
     }}
   />
 

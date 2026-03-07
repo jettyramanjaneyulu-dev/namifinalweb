@@ -139,7 +139,7 @@ useEffect(() => {
 >
               <Link href="/">
               <img
-                src="public/assets/footer-n-logo.png"
+                src="/assets/footer-n-logo.png"
                 alt="Logo"
                 
                 className="h-full  object-contain"

@@ -88,7 +88,7 @@ export default function ProductsPage() {
 
   {/* Background Image */}
   <img
-    src="public/assets/images/products.png"
+    src="/assets/images/products.png"
     alt="Pharmaceutical Pellets"
     className="absolute inset-0 w-full h-full object-cover object-center scale-105 z-0"
   />

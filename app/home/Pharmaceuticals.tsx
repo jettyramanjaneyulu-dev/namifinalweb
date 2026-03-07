@@ -29,8 +29,8 @@ export default function Pharmaceuticals() {
 
             <div className="space-y-6 text-[#014d8b]">
               {[
-                ["public/assets/Pharmaceuticals-old.jpeg", "Pellet Formulations"],
-                ["public/assets/Pharmaceuticals1.png", "MUPS Technology"],
+                ["/assets/Pharmaceuticals-old.png", "Pellet Formulations"],
+                ["/assets/Pharmaceuticals1.png", "MUPS Technology"],
               ].map(([img, title]) => (
                 <Link
                   key={title}

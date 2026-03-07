@@ -90,7 +90,7 @@ export default function GlobalReach() {
               <div className="flex items-center gap-6 group cursor-pointer">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#014d8b]/20">
                   <img
-                    src="public/assets/international_standards.png"
+                    src="/assets/international_standards.png"
                     alt="International Standards"
                     className="object-cover w-full h-full"
                   />
@@ -112,7 +112,7 @@ export default function GlobalReach() {
               <div className="flex items-center gap-6 group cursor-pointer">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#014d8b]/20">
                   <img
-                    src="public/assets/ethical_principles.png"
+                    src="/assets/ethical_principles.png"
                     alt="Ethical Principles"
                     className="object-cover w-full h-full"
                   />

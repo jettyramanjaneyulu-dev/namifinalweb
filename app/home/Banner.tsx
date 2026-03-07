@@ -18,7 +18,7 @@ export default function HeroSection() {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="public/assets/namilifesciences.mp4" type="video/mp4" />
+          <source src="/assets/namilifesciences.mp4" type="video/mp4" />
         </video>
       </div>
 
@@ -107,14 +107,14 @@ export default function HeroSection() {
               <span className="flex items-center gap-2">
                 Brochure
                 <img
-                  src="public/assets/broucher.png"
+                  src="/assets/broucher.png"
                   alt="Brochure"
                   className="w-6 h-6"
                 />
               </span>
             }
             onClick={() =>
-              window.open("public/assets/pdf/nami-products.pdf", "_blank")
+              window.open("/assets/pdf/nami-products.pdf", "_blank")
             }
           />
         </motion.div>
