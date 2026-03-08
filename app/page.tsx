@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Banner from "./home/Banner";
 import NewsTicker from "./home/NewsTicker";
 import Pharmaceuticals from "./home/Pharmaceuticals";
@@ -17,15 +19,11 @@ export const metadata: Metadata = {
   },
   description:
     "Precision-engineered pharmaceutical pellets and nutraceutical solutions.",
-};  
-
-
-
-/* ================= PAGE COMPONENT ================= */
+};
 
 export default function HomePage() {
   return (
-   <main className="relative">
+    <main className="relative">
       <Banner />
       {/* <NewsTicker /> */}
       <Pharmaceuticals />
