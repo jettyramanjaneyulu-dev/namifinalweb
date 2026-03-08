@@ -8,8 +8,6 @@ import CoreCapabilities from "./home/CoreCapabilities";
 import Testimonials from "./home/Testimonials";
 import YoutubeSection from "./home/YoutubeSection";
 import type { Metadata } from "next";
-/* ================= SEO META TAGS (HOMEPAGE) ================= */
-
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://namilifesciences.com"),
@@ -19,9 +17,7 @@ export const metadata: Metadata = {
   },
   description:
     "Precision-engineered pharmaceutical pellets and nutraceutical solutions.",
-};
-
-
+};                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 
 /* ================= PAGE COMPONENT ================= */
 
@@ -29,7 +25,7 @@ export default function HomePage() {
   return (
    <main className="relative">
       <Banner />
-      
+
     </main>
   );
 }
