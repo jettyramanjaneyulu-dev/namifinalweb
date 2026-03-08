@@ -15,6 +15,9 @@ export default function WhatWeDoSection() {
   const rotate = useTransform(scrollY, [0, 1000], [0, 180]);
   const floatY = useTransform(scrollYProgress, [0, 1], [-80, 80]);
 
+  // ✅ FIX: useTransform must be called at the top level, NOT inside JSX or .map()
+  const counterRotate = useTransform(rotate, (v) => -v);
+
   return (
     <section
       id="research"
@@ -25,7 +28,7 @@ export default function WhatWeDoSection() {
         bg-white
       "
     >
-      {/* ================= BACKGROUND LAYER (FIXED RESPONSIVE ISSUE) ================= */}
+      {/* ================= BACKGROUND LAYER ================= */}
       <div
         className="
           absolute inset-0
@@ -54,8 +57,6 @@ export default function WhatWeDoSection() {
             left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0
             flex items-center justify-center overflow-hidden
             order-2 lg:order-1
-
-            /* ✅ added top space ONLY for responsive */
             pt-10 sm:pt-16 md:pt-20 lg:pt-0
           "
         >
@@ -69,7 +70,7 @@ export default function WhatWeDoSection() {
               className="w-[108%] max-w-none object-contain will-change-transform"
               style={{
                 y: floatY,
-                rotate: useTransform(rotate, (v) => -v),
+                rotate: counterRotate,  // ✅ use pre-computed transform
                 scaleX: -1,
               }}
             />

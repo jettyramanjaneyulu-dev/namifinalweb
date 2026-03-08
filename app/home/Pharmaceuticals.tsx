@@ -17,8 +17,7 @@ export default function Pharmaceuticals() {
           {/* LEFT CONTENT */}
           <div className="order-2 lg:order-1">
             <div className="flex items-center gap-4 mb-6">
-              <h2 className="text-3xl md:text-4xl font-black text-[#014d8b] uppercase tracking-wider"
-              >
+              <h2 className="text-3xl md:text-4xl font-black text-[#014d8b] uppercase tracking-wider">
                 Pharmaceuticals
               </h2>
             </div>
@@ -37,11 +36,12 @@ export default function Pharmaceuticals() {
                   href="/infrastructure"
                   className="flex items-center gap-6 cursor-pointer group w-fit"
                 >
+                  {/* ✅ FIX: next/image with fill requires position:relative parent with explicit size */}
                   <div className="w-16 h-16 rounded-full overflow-hidden border border-[#014d8b]/30 relative flex-shrink-0">
-                    <Image 
-                      src={img} 
-                      alt={title} 
-                      fill 
+                    <Image
+                      src={img}
+                      alt={title}
+                      fill
                       className="object-cover"
                       sizes="64px"
                     />
@@ -58,40 +58,20 @@ export default function Pharmaceuticals() {
             </div>
           </div>
 
-          {/* RIGHT IMAGE - FULLY FIXED FOR iOS SCROLL */}
+          {/* RIGHT IMAGE - FIXED FOR iOS SCROLL */}
           <div className="order-1 lg:order-2 relative flex justify-center">
-            {/* <motion.div
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               className="relative w-72 h-72 md:w-[520px] md:h-[520px] z-10"
               style={{
-                // Required to clip the fixed background to the circle
                 clipPath: "circle(50% at 50% 50%)",
                 WebkitClipPath: "circle(50% at 50% 50%)",
-                // Fixes a flickering issue on some iOS versions
                 transform: "translateZ(0)",
               }}
-            > */}
-             <motion.div
-  initial={{ opacity: 0, scale: 0.9 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  className="relative w-72 h-72 md:w-[520px] md:h-[520px] z-10"
-  style={{
-    clipPath: "circle(50% at 50% 50%)",
-    WebkitClipPath: "circle(50% at 50% 50%)",
-    transform: "translateZ(0)",
-  }}
->
-              {/* THE FIX: 
-                On iOS, 'bg-fixed' is broken. Instead, we use 'before:fixed'.
-                The 'before' pseudo-element is fixed to the viewport.
-                Because the parent has 'clip-path', the user only sees the 
-                background through the circle as they scroll.
-              */}
-              <div 
+            >
+              <div
                 className="absolute inset-0 
                   before:content-[''] 
                   before:fixed 
@@ -103,9 +83,9 @@ export default function Pharmaceuticals() {
                   before:bg-no-repeat
                   before:will-change-transform
                   bg-cover bg-center sm:bg-fixed"
-                style={{ 
-                  height: '100%', 
-                  width: '100%',
+                style={{
+                  height: "100%",
+                  width: "100%",
                 }}
               />
             </motion.div>

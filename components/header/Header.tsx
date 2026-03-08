@@ -201,9 +201,9 @@ useEffect(() => {
               <AnimatedMenuItem onClick={() => navigateWithEffect("/blog")}>
                 Blog
               </AnimatedMenuItem>
-              <AnimatedMenuItem onClick={() => navigateWithEffect("/admin/login")}>
+              {/* <AnimatedMenuItem onClick={() => navigateWithEffect("/admin/login")}>
                 Admin
-              </AnimatedMenuItem>
+              </AnimatedMenuItem> */}
             </div>
           </div>
 
@@ -315,9 +315,9 @@ useEffect(() => {
               <AnimatedMenuItem mobile onClick={() => navigateWithEffect("/blog")}>
                 Blog
               </AnimatedMenuItem>
-               <AnimatedMenuItem mobile onClick={() => navigateWithEffect("/admin/login")}>
+               {/* <AnimatedMenuItem mobile onClick={() => navigateWithEffect("/admin/login")}>
                 Admin
-              </AnimatedMenuItem>
+              </AnimatedMenuItem> */}
 
               <Link
                 href="/reach-us"

@@ -36,48 +36,50 @@ export default function HeroSection() {
           <br />
           <span className="text-[#C93A7C]">Through Dedication</span>
         </motion.h1>
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.9 }}
-  className="
-    inline-block
-    px-5 sm:px-7 md:px-10
-    py-4 sm:py-5 md:py-6
-    rounded-2xl md:rounded-3xl
-    bg-white/60
-    backdrop-blur-0xl
-    border border-white/40
-    shadow-[0_20px_60px_rgba(0,0,0,0.25)]
-    max-w-[90%] sm:max-w-xl md:max-w-2xl
-  "
->
 
-        {/* Description */}
-        <motion.p
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-3xl text-lg md:text-xl text-[#014d8b] mb-4 font-medium"
-        >
-          A certified pharmaceutical company specializing in Pellets
-          <br className="hidden md:block" /> and MUPS formulations.
-        </motion.p>
-
-        {/* Tagline */}
+        {/* Glass Card */}
         <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-0"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
+          className="
+            inline-block
+            px-5 sm:px-7 md:px-10
+            py-4 sm:py-5 md:py-6
+            rounded-2xl md:rounded-3xl
+            bg-white/60
+            backdrop-blur-xl
+            border border-white/40
+            shadow-[0_20px_60px_rgba(0,0,0,0.25)]
+            max-w-[90%] sm:max-w-xl md:max-w-2xl
+          "
         >
-          <Link
-  href="/infrastructure"
-  className="text-[#014d8b] text-[16px] md:text-[18px] lg:text-[22px] font-bold tracking-widest uppercase hover:underline"
->
-  Innovation and Impact
-</Link>
-        </motion.div></motion.div>
+          {/* Description */}
+          <motion.p
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-3xl text-lg md:text-xl text-[#014d8b] mb-4 font-medium"
+          >
+            A certified pharmaceutical company specializing in Pellets
+            <br className="hidden md:block" /> and MUPS formulations.
+          </motion.p>
+
+          {/* Tagline */}
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="mb-0"
+          >
+            <Link
+              href="/infrastructure"
+              className="text-[#014d8b] text-[16px] md:text-[18px] lg:text-[22px] font-bold tracking-widest uppercase hover:underline"
+            >
+              Innovation and Impact
+            </Link>
+          </motion.div>
+        </motion.div>
 
         {/* ================= BUTTONS ================= */}
         <motion.div
