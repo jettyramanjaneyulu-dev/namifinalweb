@@ -12,7 +12,7 @@ import type { Metadata } from "next";
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.yourdomain.com"),
+  metadataBase: new URL("https://namilifesciences.com"),
   title: {
     default: "Nami Life Sciences",
     template: "%s | Nami Life Sciences",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <>
+   <main className="relative">
       <Banner />
       {/* <NewsTicker /> */}
       <Pharmaceuticals />
@@ -37,6 +37,6 @@ export default function HomePage() {
       <CoreCapabilities />
       <Testimonials />
       {/* <YoutubeSection /> */}
-    </>
+    </main>
   );
 }
