@@ -1,12 +1,7 @@
-"use client";
-
-import { usePathname } from "next/navigation";
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Orbitron, Roboto } from "next/font/google";
 import "./globals.css";
 
-import Header from "@/components/header/Header";
-import Footer from "@/components/footer/Footer";
+import { Geist, Geist_Mono, Orbitron, Roboto } from "next/font/google";
+import LayoutClient from "./LayoutClient";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -35,11 +30,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
-
-  // 🔥 Hide header & footer on admin pages
-  const isAdminPage = pathname.startsWith("/admin");
-
   return (
     <html lang="en">
       <body
@@ -52,9 +42,7 @@ export default function RootLayout({
           text-[#f0f0f0]
         `}
       >
-        {!isAdminPage && <Header />}
-        {children}
-        {!isAdminPage && <Footer />}
+        <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
   );
