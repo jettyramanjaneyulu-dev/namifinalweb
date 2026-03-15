@@ -319,16 +319,19 @@ useEffect(() => {
                 Admin
               </AnimatedMenuItem> */}
 
-              <Link
-                href="/reach-us"
-                onClick={() => setMobileMenuOpen(false)}
-                className="mt-6 inline-flex items-center gap-2
-                  px-8 py-4 rounded-full
-                  bg-gradient-to-r from-[#18324d] via-[#0077b6] to-[#00b4d8]
-                  text-white font-bold"
-              >
-                Get Quote Now <ArrowRight size={16} />
-              </Link>
+              {/* ✅ FIXED: uses navigateWithEffect instead of plain Link */}
+       <button
+  onClick={() => navigateWithEffect("/reach-us")}
+  style={{
+    display: "inline-flex",
+    background: "linear-gradient(to right, #18324d, #0077b6, #00b4d8)",
+  }}
+  className="mt-6 items-center gap-2
+    px-8 py-4 rounded-full
+    text-white font-bold"
+>
+  Get Quote Now <ArrowRight size={16} />
+</button>
             </div>
           </motion.div>
         )}
