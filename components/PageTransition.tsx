@@ -2,11 +2,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-// Phase 0 → dark blue slides in
-// Phase 1 → logo fades in (dark blue still visible behind)
-// Phase 2 → light blue slides in over everything
-// Phase 3 → entire overlay gone
-
 export default function PageTransition() {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const [phase, setPhase] = useState(0);
@@ -14,12 +9,11 @@ export default function PageTransition() {
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
     setIsMobile(mq.matches);
-  }, []);
 
-  useEffect(() => {
-    const t1 = setTimeout(() => setPhase(1), 400);
-    const t2 = setTimeout(() => setPhase(2), 900);
-    const t3 = setTimeout(() => setPhase(3), 1300);
+    const t1 = setTimeout(() => setPhase(1), 200);
+    const t2 = setTimeout(() => setPhase(2), 500);
+    const t3 = setTimeout(() => setPhase(3), 1100);
+
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
@@ -27,21 +21,19 @@ export default function PageTransition() {
     };
   }, []);
 
-  if (isMobile === null) return null;
-  if (phase === 3) return null;
+  if (isMobile === null || phase === 3) return null;
 
-  const EASE: [number, number, number, number] = [0.4, 0.0, 0.2, 1];
-  const SLIDE_DURATION = 0.35;
-  const LOGO_DURATION  = 0.3;
+  // ✅ Fix: `as const` tells TypeScript these are readonly tuples, not number[]
+  const EASE = [0.4, 0, 0.2, 1] as const;
+  const FAST_EASE = [0.22, 1, 0.36, 1] as const;
 
-  const slideIn  = isMobile ? { x: "-100%" } : { y: "100%" };
-  const slideOut = isMobile ? { x:  "100%" } : { y: "-100%" };
-  const center   = { x: "0%", y: "0%" };
+  const slideIn = isMobile ? { x: "-100%" } : { y: "100%" };
+  const center = { x: "0%", y: "0%" };
 
   return (
     <div className="fixed inset-0 z-[9999] pointer-events-auto overflow-hidden">
 
-      {/* ===== SLIDE 1 : DARK BLUE ===== */}
+      {/* ===== LAYER 1: DARK BLUE ===== */}
       <AnimatePresence>
         {phase < 2 && (
           <motion.div
@@ -49,36 +41,36 @@ export default function PageTransition() {
             className="absolute inset-0 bg-[#0A4C8B] z-10"
             initial={slideIn}
             animate={center}
-            exit={slideOut}
-            transition={{ duration: SLIDE_DURATION, ease: EASE }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: EASE }}
           />
         )}
       </AnimatePresence>
 
-      {/* ===== LOGO : white background ===== */}
+      {/* ===== LAYER 2: LOGO / WHITE BG ===== */}
       <AnimatePresence>
-        {phase === 1 && (
+        {phase >= 1 && phase < 3 && (
           <motion.div
-            key="logo"
+            key="logo-layer"
             className="absolute inset-0 flex items-center justify-center bg-white z-20"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25, ease: EASE }}
+            transition={{ duration: 0.2, ease: EASE }}
           >
             <motion.img
               src="/assets/footer-n-logo.png"
               alt="Logo"
-              className="h-50 w-auto"
-              initial={{ scale: 0.85, opacity: 0 }}
+              className="h-40 w-auto md:h-50"
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: LOGO_DURATION, ease: EASE }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
             />
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* ===== SLIDE 2 : LIGHT BLUE ===== */}
+      {/* ===== LAYER 3: LIGHT BLUE ===== */}
       <AnimatePresence>
         {phase === 2 && (
           <motion.div
@@ -86,8 +78,8 @@ export default function PageTransition() {
             className="absolute inset-0 bg-[#00B4D8] z-30"
             initial={slideIn}
             animate={center}
-            exit={slideOut}
-            transition={{ duration: SLIDE_DURATION, ease: EASE }}
+            exit={isMobile ? { x: "100%" } : { y: "-100%" }}
+            transition={{ duration: 0.35, ease: FAST_EASE }}
           />
         )}
       </AnimatePresence>
