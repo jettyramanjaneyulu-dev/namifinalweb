@@ -97,7 +97,7 @@ export default function WhatWeDoSection() {
             {/* Subtitle */}
             <h3
               className="text-lg md:text-2xl font-bold mb-6 leading-tight uppercase"
-              style={{ fontFamily: "Orbitron", color: "#014d8b" }}
+              style={{color: "#014d8b" }}
             >
               We Engineer High-Precision Pellet Systems for Modern Drug Delivery Challenges.
             </h3>

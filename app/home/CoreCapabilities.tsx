@@ -27,7 +27,7 @@ export default function CoreCapabilitiesSection() {
               </div>
               <h2
                 className="text-[28px] font-black uppercase tracking-wider text-[#C93A7C]"
-                style={{ fontFamily: "var(--font-orbitron)" }}
+                // style={{ fontFamily: "var(--font-orbitron)" }}
               >
                 CORE CAPABILITIES
               </h2>
@@ -65,7 +65,7 @@ export default function CoreCapabilitiesSection() {
               </div>
               <h2
                 className="text-[28px] font-black uppercase tracking-wider text-[#C93A7C]"
-                style={{ fontFamily: "var(--font-orbitron)" }}
+                // style={{ fontFamily: "var(--font-orbitron)" }}
               >
                 QUALITY & COMPLIANCE
               </h2>
