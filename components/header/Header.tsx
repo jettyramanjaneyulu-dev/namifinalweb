@@ -53,7 +53,14 @@ const AnimatedMenuItem = ({
 export default function Header() {
   const router = useRouter();
 
+  // FIX: Use a single ref for the navigation lock — no useState for transitioning guard.
+  // The transitioning STATE is only used to show/hide <PageTransition />.
+  // The ref is the real lock, but we shorten the lock window to just cover the push delay (350ms)
+  // so the user never has to click twice on fast re-visits.
   const transitioningRef = useRef(false);
+  const transitionLockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const transitionVisualTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const [transitioning, setTransitioning] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
@@ -71,31 +78,52 @@ export default function Header() {
     router.prefetch("/admin/login");
   }, [router]);
 
+  // Cleanup timers on unmount
+  useEffect(() => {
+    return () => {
+      if (transitionLockTimer.current) clearTimeout(transitionLockTimer.current);
+      if (transitionVisualTimer.current) clearTimeout(transitionVisualTimer.current);
+    };
+  }, []);
+
   const navigateWithEffect = (href: string) => {
     if (transitioningRef.current) return;
 
+    // Lock navigation immediately
     transitioningRef.current = true;
     setTransitioning(true);
     setMobileMenuOpen(false);
     setMobileProductsOpen(false);
 
+    // Push route after transition starts
     setTimeout(() => {
       router.push(href);
     }, 350);
 
-    setTimeout(() => {
+    // FIX: Release the navigation LOCK much sooner (500ms) — just enough to cover
+    // the push + a small buffer. This prevents the "need to click twice" issue
+    // caused by the old 2400ms lock window.
+    if (transitionLockTimer.current) clearTimeout(transitionLockTimer.current);
+    transitionLockTimer.current = setTimeout(() => {
       transitioningRef.current = false;
+    }, 500);
+
+    // Keep the visual PageTransition showing for its full duration separately
+    if (transitionVisualTimer.current) clearTimeout(transitionVisualTimer.current);
+    transitionVisualTimer.current = setTimeout(() => {
       setTransitioning(false);
     }, 2400);
   };
 
+  // FIX: Logo click — removed the transitioningRef guard entirely for the home/scroll case.
+  // If already on "/", just scroll smoothly — no lock needed.
+  // If navigating away, use navigateWithEffect normally.
   const handleLogoClick = () => {
-    if (transitioningRef.current) return;
-    if (window.location.pathname === "/") {
+    if (typeof window !== "undefined" && window.location.pathname === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      navigateWithEffect("/");
+      return;
     }
+    navigateWithEffect("/");
   };
 
   return (
@@ -116,7 +144,7 @@ export default function Header() {
           {/* LEFT */}
           <div className="flex items-center gap-6">
 
-            {/* ✅ LOGO */}
+            {/* LOGO */}
             <button
               onClick={handleLogoClick}
               className="w-76 h-27 cursor-pointer flex items-center flex-shrink-0"
