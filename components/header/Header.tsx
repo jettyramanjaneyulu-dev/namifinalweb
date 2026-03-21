@@ -1,32 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Menu, X, ChevronDown } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
-import { useEffect } from "react";
 
 /* ------------------ ANIMATED MENU ITEM ------------------ */
-// const AnimatedMenuItem = ({
-//   children,
-//   onClick,
-//   mobile = false,
-// }: {
-//   children: React.ReactNode;
-//   onClick?: () => void;
-//   mobile?: boolean;
-// }) => {
-//   return (
-//     <button
-//       onClick={onClick}
-//       className="relative overflow-hidden px-2 py-1
-//         uppercase text-sm font-bold tracking-wider
-//         cursor-pointer text-[#014d8b]"
-//     >
-
 const AnimatedMenuItem = ({
   children,
   onClick,
@@ -45,16 +26,16 @@ const AnimatedMenuItem = ({
       onMouseEnter={() => href && router.prefetch(href)}
       onClick={onClick}
       className="
-relative overflow-hidden
-px-[clamp(6px,0.8vw,10px)]
-py-1
-uppercase
-text-[clamp(11px,0.85vw,14px)]
-font-bold
-tracking-wider
-cursor-pointer
-text-[#014d8b]
-"
+        relative overflow-hidden
+        px-[clamp(6px,0.8vw,10px)]
+        py-1
+        uppercase
+        text-[clamp(11px,0.85vw,14px)]
+        font-bold
+        tracking-wider
+        cursor-pointer
+        text-[#014d8b]
+      "
     >
       <motion.span
         initial={mobile ? { y: "-100%" } : { x: "-100%" }}
@@ -71,46 +52,43 @@ text-[#014d8b]
 
 export default function Header() {
   const router = useRouter();
-useEffect(() => {
-  router.prefetch("/about");
-  router.prefetch("/products");
-  router.prefetch("/products/list");
-  router.prefetch("/quality");
-  router.prefetch("/infrastructure");
-  router.prefetch("/career");
-  router.prefetch("/gallery");
-  router.prefetch("/reach-us");
-  router.prefetch("/blog");
-  router.prefetch("/admin/login");
-}, [router]);
+
+  useEffect(() => {
+    router.prefetch("/about");
+    router.prefetch("/products");
+    router.prefetch("/products/list");
+    router.prefetch("/quality");
+    router.prefetch("/infrastructure");
+    router.prefetch("/career");
+    router.prefetch("/gallery");
+    router.prefetch("/reach-us");
+    router.prefetch("/blog");
+    router.prefetch("/admin/login");
+  }, [router]);
+
   const [transitioning, setTransitioning] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
 
   const navigateWithEffect = (href: string) => {
-  if (transitioning) return; // prevent double click
+    if (transitioning) return;
 
-  setTransitioning(true);
-  setMobileMenuOpen(false);
-  setMobileProductsOpen(false);
+    setTransitioning(true);
+    setMobileMenuOpen(false);
+    setMobileProductsOpen(false);
 
-  // wait for animation to finish
-  setTimeout(() => {
-    router.push(href);
-  }, 350);
+    setTimeout(() => {
+      router.push(href);
+    }, 350);
 
-  // unmount animation after redirect
-  setTimeout(() => {
-    setTransitioning(false);
-  }, 2400);
-};
-
-
+    setTimeout(() => {
+      setTransitioning(false);
+    }, 2400);
+  };
 
   return (
     <>
       {/* ================= NAVBAR ================= */}
-      
       <nav
         className="
           sticky top-0 z-40 w-full
@@ -121,41 +99,39 @@ useEffect(() => {
           transition-all duration-300
         "
       >
-        {/* <div className="relative px-8 flex justify-between items-center h-[76px]"> */}
         <div className="relative px-4 sm:px-6 lg:px-8 flex justify-between items-center h-[76px]">
+
           {/* LEFT */}
           <div className="flex items-center gap-12">
+
+            {/* ✅ LOGO — no <Link> inside, cursor-pointer for hand cursor */}
             <button
-  onClick={() => {
-    if (window.location.pathname === "/") {
-      // already on home — just scroll to top smoothly
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      // on another page — navigate with transition
-      navigateWithEffect("/");
-    }
-  }}
-  className="relative w-36 h-26"
->
-              <Link href="/">
+              onClick={() => {
+                if (window.location.pathname === "/") {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                } else {
+                  navigateWithEffect("/");
+                }
+              }}
+              className="relative w-76 h-27 cursor-pointer flex items-center"
+            >
               <img
                 src="/assets/footer-n-logo.png"
                 alt="Logo"
-                
-                className="h-full  object-contain"
-              /></Link>
+                className="h-full object-contain"
+              />
             </button>
 
             {/* DESKTOP MENU */}
-            {/* <div className="hidden lg:flex items-center gap-8"> */}
             <div className="hidden xl:flex items-center gap-[clamp(12px,1.5vw,32px)]">
-             <AnimatedMenuItem onClick={() => navigateWithEffect("/about")}> About Us </AnimatedMenuItem>
+
+              <AnimatedMenuItem onClick={() => navigateWithEffect("/about")}>
+                About Us
+              </AnimatedMenuItem>
 
               <div className="relative group">
                 <div className="flex items-center gap-1">
-                  <AnimatedMenuItem
-                    onClick={() => navigateWithEffect("/products")}
-                  >
+                  <AnimatedMenuItem onClick={() => navigateWithEffect("/products")}>
                     Products
                   </AnimatedMenuItem>
                   <ChevronDown
@@ -171,7 +147,7 @@ useEffect(() => {
                       onClick={() => navigateWithEffect("/products/list")}
                       className="block w-full px-5 py-3 text-left
                         text-sm font-semibold text-[#014d8b]
-                        hover:bg-white/60"
+                        hover:bg-white/60 cursor-pointer"
                     >
                       Products List
                     </button>
@@ -198,33 +174,37 @@ useEffect(() => {
               <AnimatedMenuItem onClick={() => navigateWithEffect("/reach-us")}>
                 Reach Us
               </AnimatedMenuItem>
+
               <AnimatedMenuItem onClick={() => navigateWithEffect("/blog")}>
                 Blog
               </AnimatedMenuItem>
-              {/* <AnimatedMenuItem onClick={() => navigateWithEffect("/admin/login")}>
-                Admin
-              </AnimatedMenuItem> */}
+
             </div>
           </div>
 
           {/* RIGHT */}
           <div className="flex items-center gap-4">
-            <Link
-              href="/reach-us"
+
+            {/* ✅ Get Quote — uses navigateWithEffect for animation */}
+            <button
+              onClick={() => navigateWithEffect("/reach-us")}
+              style={{
+                background: "linear-gradient(to right, #18324d, #0077b6, #00b4d8)",
+              }}
               className="hidden lg:inline-flex items-center gap-2 px-7 py-3 rounded-full
-                bg-gradient-to-r from-[#18324d] via-[#0077b6] to-[#00b4d8]
                 text-white font-semibold text-sm shadow-lg
-                hover:scale-105 transition"
+                hover:scale-105 transition cursor-pointer"
             >
               Get Quote Now <ArrowRight size={16} />
-            </Link>
+            </button>
 
             <button
-              className="xl:hidden text-[#014d8b]"
+              className="xl:hidden text-[#014d8b] cursor-pointer"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
+
           </div>
         </div>
       </nav>
@@ -232,19 +212,19 @@ useEffect(() => {
       {/* ================= MOBILE MENU ================= */}
       <AnimatePresence>
         {mobileMenuOpen && (
-    <motion.div
-      initial={{ x: "-100vw" }}
-      animate={{ x: 0 }}
-      exit={{ x: "-100vw" }}
-      transition={{ duration: 0.45, ease: "easeInOut" }}
-      className="
-        fixed top-[76px] w-full z-50 xl:hidden
-        bg-white/10
-        backdrop-blur-2xl backdrop-saturate-150
-        border-t border-white/20
-        shadow-xl
-      "
-    >
+          <motion.div
+            initial={{ x: "-100vw" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100vw" }}
+            transition={{ duration: 0.45, ease: "easeInOut" }}
+            className="
+              fixed top-[76px] w-full z-50 xl:hidden
+              bg-white/10
+              backdrop-blur-2xl backdrop-saturate-150
+              border-t border-white/20
+              shadow-xl
+            "
+          >
             <div className="flex flex-col items-center text-center
               px-6 py-8 space-y-7
               text-[#014d8b] font-bold uppercase">
@@ -258,12 +238,14 @@ useEffect(() => {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => navigateWithEffect("/products")}
-                    className="font-bold uppercase text-[#014d8b]"
+                    className="font-bold uppercase text-[#014d8b] cursor-pointer"
                   >
                     Products
                   </button>
-
-                  <button onClick={() => setMobileProductsOpen(!mobileProductsOpen)}>
+                  <button
+                    onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                    className="cursor-pointer"
+                  >
                     <ChevronDown
                       size={18}
                       className={`text-[#014d8b] transition-transform ${
@@ -312,33 +294,31 @@ useEffect(() => {
               <AnimatedMenuItem mobile onClick={() => navigateWithEffect("/reach-us")}>
                 Reach Us
               </AnimatedMenuItem>
+
               <AnimatedMenuItem mobile onClick={() => navigateWithEffect("/blog")}>
                 Blog
               </AnimatedMenuItem>
-               {/* <AnimatedMenuItem mobile onClick={() => navigateWithEffect("/admin/login")}>
-                Admin
-              </AnimatedMenuItem> */}
 
-              {/* ✅ FIXED: uses navigateWithEffect instead of plain Link */}
-       <button
-  onClick={() => navigateWithEffect("/reach-us")}
-  style={{
-    display: "inline-flex",
-    background: "linear-gradient(to right, #18324d, #0077b6, #00b4d8)",
-  }}
-  className="mt-6 items-center gap-2
-    px-8 py-4 rounded-full
-    text-white font-bold"
->
-  Get Quote Now <ArrowRight size={16} />
-</button>
+              {/* ✅ Mobile Get Quote */}
+              <button
+                onClick={() => navigateWithEffect("/reach-us")}
+                style={{
+                  display: "inline-flex",
+                  background: "linear-gradient(to right, #18324d, #0077b6, #00b4d8)",
+                }}
+                className="mt-6 items-center gap-2
+                  px-8 py-4 rounded-full
+                  text-white font-bold cursor-pointer"
+              >
+                Get Quote Now <ArrowRight size={16} />
+              </button>
+
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
       {transitioning && <PageTransition />}
-
     </>
   );
 }
