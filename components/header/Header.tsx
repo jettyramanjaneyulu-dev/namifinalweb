@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Menu, X, ChevronDown } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
@@ -35,6 +34,7 @@ const AnimatedMenuItem = ({
         tracking-wider
         cursor-pointer
         text-[#014d8b]
+        whitespace-nowrap
       "
     >
       <motion.span
@@ -53,6 +53,11 @@ const AnimatedMenuItem = ({
 export default function Header() {
   const router = useRouter();
 
+  const transitioningRef = useRef(false);
+  const [transitioning, setTransitioning] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+
   useEffect(() => {
     router.prefetch("/about");
     router.prefetch("/products");
@@ -66,13 +71,10 @@ export default function Header() {
     router.prefetch("/admin/login");
   }, [router]);
 
-  const [transitioning, setTransitioning] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-
   const navigateWithEffect = (href: string) => {
-    if (transitioning) return;
+    if (transitioningRef.current) return;
 
+    transitioningRef.current = true;
     setTransitioning(true);
     setMobileMenuOpen(false);
     setMobileProductsOpen(false);
@@ -82,8 +84,18 @@ export default function Header() {
     }, 350);
 
     setTimeout(() => {
+      transitioningRef.current = false;
       setTransitioning(false);
     }, 2400);
+  };
+
+  const handleLogoClick = () => {
+    if (transitioningRef.current) return;
+    if (window.location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigateWithEffect("/");
+    }
   };
 
   return (
@@ -102,28 +114,23 @@ export default function Header() {
         <div className="relative px-4 sm:px-6 lg:px-8 flex justify-between items-center h-[76px]">
 
           {/* LEFT */}
-          <div className="flex items-center gap-12">
+          <div className="flex items-center gap-6">
 
-            {/* ✅ LOGO — no <Link> inside, cursor-pointer for hand cursor */}
+            {/* ✅ LOGO */}
             <button
-              onClick={() => {
-                if (window.location.pathname === "/") {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                } else {
-                  navigateWithEffect("/");
-                }
-              }}
-              className="relative w-76 h-27 cursor-pointer flex items-center"
+              onClick={handleLogoClick}
+              className="w-76 h-27 cursor-pointer flex items-center flex-shrink-0"
             >
               <img
                 src="/assets/footer-n-logo.png"
                 alt="Logo"
-                className="h-full object-contain"
+                className="w-full h-full object-contain pointer-events-none"
+                draggable={false}
               />
             </button>
 
             {/* DESKTOP MENU */}
-            <div className="hidden xl:flex items-center gap-[clamp(12px,1.5vw,32px)]">
+            <div className="hidden xl:flex items-center gap-[clamp(4px,1vw,20px)]">
 
               <AnimatedMenuItem onClick={() => navigateWithEffect("/about")}>
                 About Us
@@ -136,7 +143,7 @@ export default function Header() {
                   </AnimatedMenuItem>
                   <ChevronDown
                     size={16}
-                    className="text-[#014d8b] transition-transform duration-300 group-hover:rotate-180"
+                    className="text-[#014d8b] transition-transform duration-300 group-hover:rotate-180 flex-shrink-0"
                   />
                 </div>
 
@@ -183,16 +190,15 @@ export default function Header() {
           </div>
 
           {/* RIGHT */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 flex-shrink-0">
 
-            {/* ✅ Get Quote — uses navigateWithEffect for animation */}
             <button
               onClick={() => navigateWithEffect("/reach-us")}
               style={{
                 background: "linear-gradient(to right, #18324d, #0077b6, #00b4d8)",
               }}
               className="hidden lg:inline-flex items-center gap-2 px-7 py-3 rounded-full
-                text-white font-semibold text-sm shadow-lg
+                text-white font-semibold text-sm shadow-lg whitespace-nowrap
                 hover:scale-105 transition cursor-pointer"
             >
               Get Quote Now <ArrowRight size={16} />
@@ -299,7 +305,7 @@ export default function Header() {
                 Blog
               </AnimatedMenuItem>
 
-              {/* ✅ Mobile Get Quote */}
+              {/* Mobile Get Quote */}
               <button
                 onClick={() => navigateWithEffect("/reach-us")}
                 style={{
