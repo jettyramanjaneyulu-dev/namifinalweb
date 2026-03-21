@@ -124,7 +124,7 @@ export default function Header() {
               <img
                 src="/assets/footer-n-logo.png"
                 alt="Logo"
-                className="w-full h-full object-contain pointer-events-none"
+                className="h-full object-contain pointer-events-none"
                 draggable={false}
               />
             </button>
