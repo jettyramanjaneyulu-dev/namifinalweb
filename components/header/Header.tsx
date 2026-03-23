@@ -210,9 +210,9 @@ export default function Header() {
                 Reach Us
               </AnimatedMenuItem>
 
-              <AnimatedMenuItem onClick={() => navigateWithEffect("/blog")}>
+              {/* <AnimatedMenuItem onClick={() => navigateWithEffect("/blog")}>
                 Blog
-              </AnimatedMenuItem>
+              </AnimatedMenuItem> */}
 
             </div>
           </div>
@@ -329,9 +329,9 @@ export default function Header() {
                 Reach Us
               </AnimatedMenuItem>
 
-              <AnimatedMenuItem mobile onClick={() => navigateWithEffect("/blog")}>
+              {/* <AnimatedMenuItem mobile onClick={() => navigateWithEffect("/blog")}>
                 Blog
-              </AnimatedMenuItem>
+              </AnimatedMenuItem> */}
 
               {/* Mobile Get Quote */}
               <button

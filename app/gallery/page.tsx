@@ -113,8 +113,8 @@ export default function GalleryPage() {
   const imgAnimClass = animDir === "right"
     ? "lb-exit-left"
     : animDir === "left"
-    ? "lb-exit-right"
-    : "lb-enter";
+      ? "lb-exit-right"
+      : "lb-enter";
 
   return (
     <main className="bg-white">
@@ -245,128 +245,92 @@ export default function GalleryPage() {
 
         /* ── Root: CSS Grid fills the entire viewport ── */
         .lb-root {
-          position: fixed;
-          inset: 0;
-          z-index: 9999;
-          /* 3 columns: left-arrow | image | right-arrow */
-          /* 3 rows:    topbar     | image | thumbs      */
-          display: grid;
-          grid-template-columns: 52px 1fr 52px;
-          grid-template-rows: 56px 1fr 72px;
-          background: rgba(0, 0, 0, 0.96);
-          /* iOS safe area (notch / home bar) */
-          padding-top:    env(safe-area-inset-top,    0px);
-          padding-bottom: env(safe-area-inset-bottom, 0px);
-          padding-left:   env(safe-area-inset-left,   0px);
-          padding-right:  env(safe-area-inset-right,  0px);
-        }
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.96);
+}
+
 
         /* Invisible full-screen tap target for closing */
-        .lb-backdrop {
-          position: absolute;
-          inset: 0;
-          z-index: 0;
-          cursor: zoom-out;
-        }
+       .lb-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  cursor: zoom-out;
+}
 
         /* Counter pill — row 1, col 2 */
         .lb-counter {
-          grid-column: 2 / 3;
-          grid-row: 1 / 2;
-          align-self: center;
-          justify-self: center;
-          z-index: 2;
-          font-size: 13px;
-          font-weight: 500;
-          letter-spacing: 0.08em;
-          color: rgba(255,255,255,0.75);
-          background: rgba(255,255,255,0.1);
-          border: 1px solid rgba(255,255,255,0.18);
-          border-radius: 999px;
-          padding: 5px 14px;
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
-          user-select: none;
-          pointer-events: none;
-        }
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.1);
+  border-radius: 999px;
+  padding: 5px 14px;
+}
 
         /* Close button — absolute top-right */
-        .lb-close {
-          position: absolute;
-          top: calc(10px + env(safe-area-inset-top, 0px));
-          right: calc(10px + env(safe-area-inset-right, 0px));
-          z-index: 3;
-          width: 40px;
-          height: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: rgba(255,255,255,0.12);
-          border: 1px solid rgba(255,255,255,0.22);
-          border-radius: 50%;
-          color: rgba(255,255,255,0.9);
-          cursor: pointer;
-          transition: background 0.18s, transform 0.15s;
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
-        }
+  .lb-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 99999; 
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 10px;
+  display: flex; /* Ensure it's visible */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
         .lb-close:hover  { background: rgba(255,255,255,0.26); }
         .lb-close:active { transform: scale(0.85); }
 
         /* Arrows — row 2, col 1 or 3 */
-        .lb-arrow {
-          grid-row: 2 / 3;
-          align-self: center;
-          justify-self: center;
-          z-index: 2;
-          width: 42px;
-          height: 42px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: rgba(255,255,255,0.12);
-          border: 1px solid rgba(255,255,255,0.2);
-          border-radius: 50%;
-          color: rgba(255,255,255,0.9);
-          cursor: pointer;
-          transition: background 0.18s, transform 0.15s;
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
-        }
-        .lb-arrow-left  { grid-column: 1 / 2; }
-        .lb-arrow-right { grid-column: 3 / 4; }
+       .lb-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+        .lb-arrow-left {
+  left: 16px;
+}
+
+.lb-arrow-right {
+  right: 16px;
+}
         .lb-arrow:hover  { background: rgba(255,255,255,0.26); }
-        .lb-arrow:active { transform: scale(0.85); }
+        .lb-arrow:active { transform: translateY(-50%) scale(0.85); }
 
         /* ── Image zone: row 2, col 2 — the magic is here ── */
-        .lb-img-zone {
-          grid-column: 2 / 3;
-          grid-row: 2 / 3;
-          z-index: 1;
-          /* The zone itself fills the grid cell completely */
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          padding: 6px 2px;
-        }
+     .lb-img-zone {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
         /* The image fills the zone, keeps its ratio, no cropping */
-        .lb-img {
-          display: block;
-          /* width + height = 100% of the zone */
-          width: 100%;
-          height: 100%;
-          /* contain = show whole image, letterbox if needed */
-          object-fit: contain;
-          border-radius: 8px;
-          box-shadow: 0 4px 32px rgba(0,0,0,0.5);
-          will-change: transform, opacity;
-          user-select: none;
-          -webkit-user-drag: none;
-        }
+       .lb-img {
+  pointer-events: auto; 
+}
 
         /* ── Animations ── */
         @keyframes lb-enter-kf {
@@ -394,38 +358,30 @@ export default function GalleryPage() {
         }
 
         /* ── Thumbnail strip: row 3, all columns ── */
-        .lb-thumbs-wrap {
-          grid-column: 1 / -1;
-          grid-row: 3 / 4;
-          z-index: 2;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0 8px;
-        }
-        .lb-thumbs {
-          display: flex;
-          gap: 5px;
-          overflow-x: auto;
-          padding: 4px 2px;
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-        }
+       .lb-thumbs-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  background: rgba(0,0,0,0.4);
+}
+      .lb-thumbs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+}
         .lb-thumbs::-webkit-scrollbar { display: none; }
 
-        .lb-thumb {
-          flex-shrink: 0;
-          width: 44px;
-          height: 32px;
-          border-radius: 5px;
-          overflow: hidden;
-          border: 2px solid transparent;
-          opacity: 0.38;
-          cursor: pointer;
-          transition: opacity 0.2s, border-color 0.2s, transform 0.2s;
-          background: none;
-          padding: 0;
-        }
+       .lb-thumb {
+  width: 50px;
+  height: 36px;
+  opacity: 0.5;
+}
         .lb-thumb img {
           width: 100%;
           height: 100%;
@@ -433,8 +389,11 @@ export default function GalleryPage() {
           display: block;
         }
         .lb-thumb:hover      { opacity: 0.65; transform: scale(1.07); }
-        .lb-thumb-active     { border-color: #fff; opacity: 1; transform: scale(1.1); }
-
+        
+.lb-thumb-active {
+  opacity: 1;
+  border: 2px solid #fff;
+}
         /* ── Tablet ── */
         @media (min-width: 640px) {
           .lb-root {
@@ -458,6 +417,33 @@ export default function GalleryPage() {
         @media (prefers-reduced-motion: reduce) {
           .lb-img { animation: none !important; opacity: 1 !important; transform: none !important; }
         }
+
+        @media (max-width: 640px) {
+  .lb-close {
+    top: 15px;      /* Mobile లో కొంచెం పైకి */
+    right: 15px;    /* Mobile లో సైడ్ కి */
+    width: 40px;    /* Specific size for mobile */
+    height: 40px;
+    background: rgba(0, 0, 0, 0.8) !important; /* Mobile లో క్లియర్ గా కనిపించడానికి dark background */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  /* Image mobile లో button కిందకి వెళ్లకుండా కొంచెం తగ్గించడం */
+  .lb-img {
+    max-height: 70vh !important; 
+    object-fit: contain;
+  }
+    .lb-close svg {
+    stroke: #ffffff !important;
+    width: 26px; /* Icon size slightly bigger for mobile visibility */
+    height: 26px;
+  }
+  
+  /* Image zone adjustment for mobile */
+  .lb-img-zone {
+    z-index: 10; /* Button (99999) కన్నా తక్కువ ఉండాలి */
+  }
+}
       `}</style>
     </main>
   );
