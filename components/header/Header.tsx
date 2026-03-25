@@ -271,7 +271,7 @@ export default function Header() {
               </AnimatedMenuItem>
 
               {/* PRODUCTS (MOBILE) */}
-              <div className="flex flex-col items-center gap-2">
+              {/* <div className="flex flex-col items-center gap-2">
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => navigateWithEffect("/products")}
@@ -310,7 +310,11 @@ export default function Header() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </div> */}
+
+               <AnimatedMenuItem mobile onClick={() => navigateWithEffect("/products/list")}>
+                Products List
+              </AnimatedMenuItem>
 
               <AnimatedMenuItem mobile onClick={() => navigateWithEffect("/quality")}>
                 Quality
