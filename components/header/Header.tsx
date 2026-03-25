@@ -164,7 +164,7 @@ export default function Header() {
                 About Us
               </AnimatedMenuItem>
 
-              <div className="relative group">
+              {/* <div className="relative group">
                 <div className="flex items-center gap-1">
                   <AnimatedMenuItem onClick={() => navigateWithEffect("/products")}>
                     Products
@@ -188,7 +188,10 @@ export default function Header() {
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> */}
+              <AnimatedMenuItem onClick={() => navigateWithEffect("/products/list")}>
+                Products List
+              </AnimatedMenuItem>
 
               <AnimatedMenuItem onClick={() => navigateWithEffect("/quality")}>
                 Quality
